@@ -22,8 +22,9 @@ func shoot():
 	var b = bullet.instantiate()
 	b.global_position = $ShootCenter.global_position
 	b.global_rotation = $ShootCenter.global_rotation
-	b.target_group = "enemies"
-	b.damage = 20
+	b.target_group = "player"
+	b.ignore_user = "enemies"
+	b.damage = 5
 	get_parent().add_child(b)
 
 func follow_target(delta):
