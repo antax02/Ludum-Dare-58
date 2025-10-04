@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp0fvfymjk8d1"]
+[gd_scene load_steps=14 format=3 uid="uid://dp0fvfymjk8d1"]
 
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/enviorment.gd" id="1_fmwxt"]
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="2_yjxbp"]
 [ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/enviorment/star_01.tscn" id="3_e3d6q"]
 [ext_resource type="PackedScene" uid="uid://b4dyt7kb4t4g2" path="res://scenes/enviorment/planet_01.tscn" id="4_3fr31"]
+[ext_resource type="PackedScene" uid="uid://c8788b5h8tpho" path="res://scenes/enviorment/planet_05.tscn" id="4_whfbg"]
 [ext_resource type="PackedScene" uid="uid://80p3mosi1y6q" path="res://scenes/enviorment/planet_02.tscn" id="5_45ryj"]
 [ext_resource type="PackedScene" uid="uid://cq61c6hjwqy1" path="res://scenes/enviorment/planet_03.tscn" id="6_mvhhs"]
+[ext_resource type="PackedScene" uid="uid://0txg2pjmopdc" path="res://scenes/enviorment/special_01.tscn" id="7_k4g3l"]
 [ext_resource type="FontFile" uid="uid://0ajvaa5ea8n6" path="res://assets/fonts/VT323-Regular.ttf" id="7_mvhhs"]
 [ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/enviorment/planet_04.tscn" id="7_p4wd1"]
 [ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/enviorment/asteroid_01.tscn" id="9_p4wd1"]
+[ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/enviorment/asteroid_02.tscn" id="10_yp5bm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("2_yjxbp")
@@ -25,8 +28,12 @@ shader_parameter/shake_color_rate = 0.01
 z_index = -1
 script = ExtResource("1_fmwxt")
 stars = Array[PackedScene]([ExtResource("3_e3d6q")])
-far_objects = Array[PackedScene]([ExtResource("4_3fr31"), ExtResource("5_45ryj")])
-near_objects = Array[PackedScene]([ExtResource("6_mvhhs"), ExtResource("7_p4wd1")])
+far_objects = Array[PackedScene]([ExtResource("7_p4wd1"), ExtResource("4_whfbg")])
+near_objects = Array[PackedScene]([ExtResource("6_mvhhs"), ExtResource("5_45ryj"), ExtResource("6_mvhhs")])
+far_rare_objects = Array[PackedScene]([ExtResource("7_k4g3l")])
+near_rare_objects = Array[PackedScene]([ExtResource("4_3fr31")])
+far_objects_count = 40
+near_objects_count = 25
 
 [node name="OutOfBoundsEffect" type="CanvasLayer" parent="."]
 visible = false
@@ -67,6 +74,12 @@ scroll_scale = Vector2(0.2, 0.2)
 [node name="FarObjects" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.4, 0.4)
 
+[node name="NearRareObjects" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="FarRareObjects" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
 [node name="NearObjects" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.7, 0.7)
 
@@ -77,6 +90,10 @@ polygon = PackedVector2Array(-237, -86, 1, -159, 544, -147, 523, 246, -13, 240, 
 
 [node name="Asteroid01" parent="." instance=ExtResource("9_p4wd1")]
 position = Vector2(335, 234)
+
+[node name="Asteroid02" parent="." instance=ExtResource("10_yp5bm")]
+position = Vector2(367.00003, -460)
+rotation = -1.7390867
 
 [connection signal="body_entered" from="PlayableArea" to="." method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="PlayableArea" to="." method="_on_playable_area_body_exited"]
