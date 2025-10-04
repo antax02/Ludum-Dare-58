@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsttj07uh4amy"]
+
+[ext_resource type="Script" uid="uid://t4hg1v30dkwu" path="res://scripts/enemies/base_enemy.gd" id="1_a3pup"]
+[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_40wdo"]
+[ext_resource type="Script" uid="uid://n0il7q3u3nx3" path="res://scripts/bullet.gd" id="2_lkvl6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkf8s"]
+radius = 6.9999814
+height = 35.999905
+
+[sub_resource type="PackedScene" id="PackedScene_n763p"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741828, 1073741827, 18, 17, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("bullet", "Area2D", "script", "Polygon2D", "Polygon2D", "color", "polygon", "Polygon2D2", "Polygon2D", "color", "polygon", "CollisionShape2D", "CollisionShape2D", "visible", "position", "rotation", "shape", "_on_body_entered", "body_entered"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 2, 5, 1, 6, 2, 0, 1073741825, 0, 8, 7, -1, 2, 9, 3, 10, 4, 0, 1073741826, 0, 12, 11, -1, 4, 13, 5, 14, 6, 15, 7, 16, 8, 0),
+"variants": [ExtResource("2_lkvl6"), Color(0.89, 0.53400004, 0.6704666, 0.37254903), PackedVector2Array(13, 0, 10, -3, 0, -4, -27, 0, 0, 4, 10, 3), Color(0.8885316, 0.8071477, 0.86830044, 1), PackedVector2Array(9, 0, 5, -2, 0, -2, -14, 0, 0, 2, 5, 2), false, Vector2(0, 1.1920929e-07), 1.5684679, SubResource("CapsuleShape2D_mkf8s")],
+"version": 3
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjssy"]
+size = Vector2(48, 50)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_a3pup")
+bullet = SubResource("PackedScene_n763p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tjssy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.17498466, 0.37695655, 1)
+scale = Vector2(0.4375, 0.421875)
+texture = ExtResource("2_40wdo")
+
+[node name="ShootCenter" type="Marker2D" parent="."]
+position = Vector2(41, 0)
