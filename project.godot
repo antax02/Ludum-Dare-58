@@ -14,3 +14,7 @@ config/name="LudumDare58"
 run/main_scene="uid://beqeg2bwdnimd"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player=""
