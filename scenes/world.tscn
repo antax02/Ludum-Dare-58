@@ -9,6 +9,7 @@
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 
 [node name="Rock" parent="." instance=ExtResource("2_rwgxs")]
+visible = false
 position = Vector2(133, 140)
 
 [node name="Enviorment" parent="." instance=ExtResource("3_4wyf3")]

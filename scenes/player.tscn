@@ -1,17 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlukhtdc5xlsr"]
+[gd_scene load_steps=3 format=3 uid="uid://dlukhtdc5xlsr"]
 
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://xgly6ivcsmm1" path="res://scripts/player.gd" id="1_g2els"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(128, 128)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -106,3 +99,6 @@ polygon = PackedVector2Array(38, 15, 38, 5, 39, 3, 39, 3, 40, 5, 40, 15)
 [node name="LeftBlasterAccent" type="Polygon2D" parent="Body/LeftWing/LeftBlaster"]
 color = Color(0.7372549, 0.5372549, 0.33333334, 1)
 polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(59, 0, -13, -42, -64, -42, -82, -8, -82, 9, -64, 42, -13, 42)
