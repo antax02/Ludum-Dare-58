@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlukhtdc5xlsr"]
+[gd_scene load_steps=4 format=3 uid="uid://dlukhtdc5xlsr"]
 
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://xgly6ivcsmm1" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/bullet.tscn" id="2_qhqgy"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
+Bullet = ExtResource("2_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -102,3 +104,6 @@ polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(59, 0, -13, -42, -64, -42, -82, -8, -82, 9, -64, 42, -13, 42)
+
+[node name="Shoot" type="Marker2D" parent="."]
+position = Vector2(59, 0)
