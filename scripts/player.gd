@@ -14,10 +14,14 @@ func shoot():
 	var b = bullet.instantiate()
 	b.global_position = $ShootLeft.global_position
 	b.global_rotation = $ShootLeft.global_rotation
+	b.target_group = "enemies"
+	b.damage = 20
 	get_parent().add_child(b)
 	b = bullet.instantiate()
 	b.global_position = $ShootRight.global_position
 	b.global_rotation = $ShootRight.global_rotation
+	b.target_group = "enemies"
+	b.damage = 20
 	get_parent().add_child(b)
 
 func _physics_process(delta):

@@ -6,8 +6,10 @@ var health: int = max_health
 var attack_damage: int = 10
 var max_speed: int = 200
 var acceleration: int = 800
-var rotation_speed: int = 5
-var distance: int = 200
+var rotation_speed: int = 7
+var distance: int = 400
+var bullet_cooldown: float = 0
+@export var bullet: PackedScene
 
 
 func setup():
@@ -16,13 +18,13 @@ func setup():
 func _ready():
 	setup()
 
-func _physics_process(delta):
-	follow_target(delta)
-	
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
-	
-	move_and_slide()
+func shoot():
+	var b = bullet.instantiate()
+	b.global_position = $ShootCenter.global_position
+	b.global_rotation = $ShootCenter.global_rotation
+	b.target_group = "enemies"
+	b.damage = 20
+	get_parent().add_child(b)
 
 func follow_target(delta):
 	target = get_tree().get_first_node_in_group("player")
@@ -40,3 +42,16 @@ func take_damage(damage):
 	if health <= 0:
 		# money += 10
 		queue_free()
+
+func _physics_process(delta):
+	bullet_cooldown += delta
+	follow_target(delta)
+	
+	if velocity.length() > max_speed:
+		velocity = velocity.normalized() * max_speed
+	
+	if position.distance_to(target.position) < distance + 100 and bullet_cooldown >= 0.5:
+		shoot()
+		bullet_cooldown = 0
+	
+	move_and_slide()
