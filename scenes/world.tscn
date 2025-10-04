@@ -1,12 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://beqeg2bwdnimd"]
+[gd_scene load_steps=5 format=3 uid="uid://beqeg2bwdnimd"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bs8q5ya0qs2po" path="res://scenes/rock.tscn" id="2_rwgxs"]
+[ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="3_4wyf3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
+shader = ExtResource("3_4wyf3")
+shader_parameter/scanline_count = 200.0000095
+shader_parameter/scanline_strength = 0.400000019
+shader_parameter/scanline_speed = 0.1
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
-position = Vector2(3, 18)
 
 [node name="Rock" parent="." instance=ExtResource("2_rwgxs")]
-position = Vector2(217, 3)
+position = Vector2(350, 9)
+
+[node name="OutOfBoundsEffect" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="OutOfBoundsEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = -17.0
+offset_right = 228.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.29803923, 0.4117647, 1)
+theme_override_font_sizes/font_size = 24
+text = "RETURN TO AUTHORIZED FLIGHT ZONE!"
+horizontal_alignment = 1
+
+[node name="GlitchCrt" type="ColorRect" parent="OutOfBoundsEffect"]
+material = SubResource("ShaderMaterial_k0juu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Stars" type="Parallax2D" parent="Background"]
+
+[node name="FarObjects" type="Parallax2D" parent="Background"]
+
+[node name="NearObjects" type="Parallax2D" parent="Background"]

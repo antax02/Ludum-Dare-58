@@ -15,6 +15,17 @@ run/main_scene="uid://beqeg2bwdnimd"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [global_group]
 
 player=""
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.11262695, 0.11776877, 0.19551498, 1)
