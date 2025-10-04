@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dxorwlfrmo2x0"]
-
-[node name="SkapadAvAnton" type="Node2D"]
-
-[node name="nånting" type="Node2D" parent="."]
-position = Vector2(-495.30957, -197.80615)
