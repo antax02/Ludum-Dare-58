@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-@export var bullet : PackedScene
-var health = 100
-var rotation_speed = 2
-var dash_power = 5
+@export var bullet: PackedScene
+var health: int = 100
+var rotation_speed: int = 2
+var speed: int = 200
+var dash_target_entities: int = 0
+var dash_cooldown: float = 0
 
 func _ready():
 	pass
@@ -19,13 +21,24 @@ func shoot():
 	get_parent().add_child(b)
 
 func _physics_process(delta):
+	var dash_target = $Area2D
+	dash_cooldown += delta
+	
 	if Input.is_action_pressed("thrust"):
-		velocity += (get_global_mouse_position() - global_position).normalized() * dash_power
-	if Input.is_action_pressed("break"):
-		velocity = velocity.normalized() * max(velocity.length() - 200 * delta, 0)
+		velocity += (get_global_mouse_position() - global_position).normalized() * speed * delta
+	if Input.is_action_pressed("dash") and dash_target_entities == 0 and dash_cooldown >= 1.5:
+		position = dash_target.global_position
+		dash_cooldown = 0
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-
-	get_global_mouse_position()
+	
 	global_rotation = lerp_angle(global_rotation, (get_global_mouse_position() - global_position).angle(), rotation_speed * delta)
 	move_and_slide()
+
+@warning_ignore("unused_parameter")
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	dash_target_entities += 1
+
+@warning_ignore("unused_parameter")
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	dash_target_entities -= 1

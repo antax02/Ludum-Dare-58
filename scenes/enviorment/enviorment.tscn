@@ -86,7 +86,7 @@ scroll_scale = Vector2(0.7, 0.7)
 [node name="PlayableArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayableArea"]
-polygon = PackedVector2Array(-237, -86, 1, -159, 544, -147, 523, 246, -13, 240, -241, 126, -218, 42)
+polygon = PackedVector2Array(-108, -1915, 1959, -1434, 2578, 340, 2041, 1789, -1142, 1773, -2169, -188, -1509, -1272)
 
 [node name="Asteroid01" parent="." instance=ExtResource("9_p4wd1")]
 position = Vector2(335, 234)
