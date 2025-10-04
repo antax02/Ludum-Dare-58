@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bg16v6gptj88h"]
+
+[node name="Asteroid02" type="AnimatableBody2D"]
+
+[node name="Base" type="Polygon2D" parent="."]
+color = Color(0.6745098, 0.6745098, 0.6745098, 1)
+polygon = PackedVector2Array(-238, 23, -225, 130, -111, 207, 56, 192, 124, 106, 75, 24, 122, -94, 30, -192, -73, -210, -88, -92, -156, -30)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.6117647, 0.6117647, 0.6117647, 1)
+polygon = PackedVector2Array(-238, 23, -225, 130, -141, 142, -43, 128, -10, 70, -27, -12, 4, -99, 30, -192, -73, -210, -88, -92, -156, -30)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-73, -210, 30, -192, 122, -94, 76, 25, 123, 106, 57, 195, -111, 208, -225, 131, -237, 22, -156, -30, -87, -92)
