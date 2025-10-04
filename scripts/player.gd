@@ -21,8 +21,8 @@ func shoot():
 func _physics_process(delta):
 	if Input.is_action_pressed("thrust"):
 		velocity += (get_global_mouse_position() - global_position).normalized() * dash_power
-	if Input.is_action_pressed("break"):
-		velocity = velocity.normalized() * max(velocity.length() - 200 * delta, 0)
+	if Input.is_action_pressed("dash"):
+		position += get_global_mouse_position().normalized() * 100
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
