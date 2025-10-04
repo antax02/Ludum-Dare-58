@@ -1,18 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlukhtdc5xlsr"]
+[gd_scene load_steps=3 format=3 uid="uid://dlukhtdc5xlsr"]
 
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://xgly6ivcsmm1" path="res://scripts/player.gd" id="1_g2els"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(128, 128)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g2els")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Body" type="Node2D" parent="."]
+rotation = 1.5707964
+
+[node name="Nose" type="Polygon2D" parent="Body"]
+color = Color(0.30656496, 0.3482002, 0.40443677, 1)
+polygon = PackedVector2Array(0, -59, -8, -43, -8, 8, 0, 20, 8, 8, 8, -44)
+
+[node name="Cockpit" type="Polygon2D" parent="Body/Nose"]
+position = Vector2(0, -13)
+color = Color(0.752319, 0.60286826, 0.3741441, 1)
+polygon = PackedVector2Array(0, -30, -5, -22, -5, -3, 0, 5, 5, -3, 5, -22)
+
+[node name="Body" type="Polygon2D" parent="Body"]
+color = Color(0.7490196, 0.6, 0.37254903, 1)
+polygon = PackedVector2Array(-8, 8, -20, 14, -20, 58, -17, 61, -14, 58, 0, 58, 14, 58, 17, 61, 20, 58, 20, 14, 8, 8, 0, 20)
+
+[node name="BodyAccent" type="Polygon2D" parent="Body/Body"]
+color = Color(0.7401768, 0.53881353, 0.33619666, 1)
+polygon = PackedVector2Array(-6, 11, -5, 43, 0, 52, 5, 43, 6, 11, 0, 20)
+
+[node name="LeftEngine" type="Polygon2D" parent="Body"]
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-14, 54, -11, 48, -6, 48, -3, 54)
+
+[node name="LeftExhaust" type="Polygon2D" parent="Body/LeftEngine"]
+color = Color(0.7420294, 0.4182081, 0.5230039, 1)
+polygon = PackedVector2Array(-13, 66, -12, 73, -11, 72, -10, 80, -9, 79, -8, 82, -7, 80, -6, 70, -5, 71, -4, 66)
+
+[node name="LeftExhaustAccent" type="Polygon2D" parent="Body/LeftEngine/LeftExhaust"]
+color = Color(0.8666631, 0.60651547, 0.6834131, 1)
+polygon = PackedVector2Array(-11, 66, -10, 72, -9, 71, -8, 74, -7, 72, -7, 68, -6, 69, -5, 66)
+
+[node name="LeftEngineNozzle" type="Polygon2D" parent="Body/LeftEngine"]
+color = Color(0.37897637, 0.4236128, 0.4905643, 1)
+polygon = PackedVector2Array(-14, 54, -14, 66, -3, 66, -3, 54)
+
+[node name="RightEngine" type="Polygon2D" parent="Body"]
+position = Vector2(17, 0)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-14, 54, -11, 48, -6, 48, -3, 54)
+
+[node name="RightExhaust" type="Polygon2D" parent="Body/RightEngine"]
+color = Color(0.7411765, 0.41568628, 0.52156866, 1)
+polygon = PackedVector2Array(-13, 66, -12, 72, -11, 71, -10, 78, -9, 77, -8, 82, -7, 77, -6, 78, -6, 72, -5, 74, -4, 66)
+
+[node name="RightExhaustAccent" type="Polygon2D" parent="Body/RightEngine/RightExhaust"]
+color = Color(0.8666631, 0.60651547, 0.6834131, 1)
+polygon = PackedVector2Array(-11, 66, -11, 69, -10, 68, -9, 72, -8, 74, -7, 72, -7, 70, -6, 71, -5, 66)
+
+[node name="RightEngineNozzle" type="Polygon2D" parent="Body/RightEngine"]
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-14, 54, -14, 66, -3, 66, -3, 54)
+
+[node name="RightWing" type="Polygon2D" parent="Body"]
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(20, 18, 36, 24, 36, 59, 20, 53)
+
+[node name="RightBlaster" type="Polygon2D" parent="Body/RightWing"]
+color = Color(0.7490196, 0.6, 0.37254903, 1)
+polygon = PackedVector2Array(36, 62, 36, 21, 37, 20, 41, 20, 42, 21, 42, 62, 41, 64, 37, 64)
+
+[node name="RightBlasterBarrel" type="Polygon2D" parent="Body/RightWing/RightBlaster"]
+position = Vector2(0, 5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(38, 15, 38, 5, 39, 3, 39, 3, 40, 5, 40, 15)
+
+[node name="RightBlasterAccent" type="Polygon2D" parent="Body/RightWing/RightBlaster"]
+color = Color(0.7372549, 0.5372549, 0.33333334, 1)
+polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
+
+[node name="LeftWing" type="Polygon2D" parent="Body"]
+scale = Vector2(-1, 1)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(20, 18, 36, 24, 36, 59, 20, 53)
+
+[node name="LeftBlaster" type="Polygon2D" parent="Body/LeftWing"]
+color = Color(0.7490196, 0.6, 0.37254903, 1)
+polygon = PackedVector2Array(36, 62, 36, 21, 37, 20, 41, 20, 42, 21, 42, 62, 41, 64, 37, 64)
+
+[node name="LeftBlasterBarrel" type="Polygon2D" parent="Body/LeftWing/LeftBlaster"]
+position = Vector2(0, 5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(38, 15, 38, 5, 39, 3, 39, 3, 40, 5, 40, 15)
+
+[node name="LeftBlasterAccent" type="Polygon2D" parent="Body/LeftWing/LeftBlaster"]
+color = Color(0.7372549, 0.5372549, 0.33333334, 1)
+polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(59, 0, -13, -42, -64, -42, -82, -8, -82, 9, -64, 42, -13, 42)

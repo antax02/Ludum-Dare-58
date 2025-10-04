@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://dp0fvfymjk8d1"]
+
+[ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/enviorment.gd" id="1_fmwxt"]
+[ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="2_yjxbp"]
+[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/enviorment/star_01.tscn" id="3_e3d6q"]
+[ext_resource type="PackedScene" uid="uid://b4dyt7kb4t4g2" path="res://scenes/enviorment/planet_01.tscn" id="4_3fr31"]
+[ext_resource type="PackedScene" uid="uid://80p3mosi1y6q" path="res://scenes/enviorment/planet_02.tscn" id="5_45ryj"]
+[ext_resource type="PackedScene" uid="uid://cq61c6hjwqy1" path="res://scenes/enviorment/planet_03.tscn" id="6_mvhhs"]
+[ext_resource type="FontFile" uid="uid://0ajvaa5ea8n6" path="res://assets/fonts/VT323-Regular.ttf" id="7_mvhhs"]
+[ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/enviorment/planet_04.tscn" id="7_p4wd1"]
+[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/enviorment/asteroid_01.tscn" id="9_p4wd1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
+shader = ExtResource("2_yjxbp")
+shader_parameter/scanline_count = 200.0000095
+shader_parameter/scanline_strength = 0.400000019
+shader_parameter/scanline_speed = 0.1
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.350000016625
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="Enviorment" type="Node2D"]
+z_index = -1
+script = ExtResource("1_fmwxt")
+stars = Array[PackedScene]([ExtResource("3_e3d6q")])
+far_objects = Array[PackedScene]([ExtResource("4_3fr31"), ExtResource("5_45ryj")])
+near_objects = Array[PackedScene]([ExtResource("6_mvhhs"), ExtResource("7_p4wd1")])
+
+[node name="OutOfBoundsEffect" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="OutOfBoundsEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = -17.0
+offset_right = 228.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.29803923, 0.4117647, 1)
+theme_override_fonts/font = ExtResource("7_mvhhs")
+theme_override_font_sizes/font_size = 32
+text = "RETURN TO AUTHORIZED FLIGHT ZONE!"
+horizontal_alignment = 1
+
+[node name="EffectRect" type="ColorRect" parent="OutOfBoundsEffect"]
+material = SubResource("ShaderMaterial_k0juu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Stars" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="FarObjects" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="NearObjects" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="PlayableArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayableArea"]
+polygon = PackedVector2Array(-237, -86, 1, -159, 544, -147, 523, 246, -13, 240, -241, 126, -218, 42)
+
+[node name="Asteroid01" parent="." instance=ExtResource("9_p4wd1")]
+position = Vector2(335, 234)
+
+[connection signal="body_entered" from="PlayableArea" to="." method="_on_playable_area_body_entered"]
+[connection signal="body_exited" from="PlayableArea" to="." method="_on_playable_area_body_exited"]

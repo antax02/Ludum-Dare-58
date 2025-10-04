@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bgnv5cfrcvbxm"]
+
+[node name="Star01" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
+color = Color(1, 1, 0.8784314, 1)
+polygon = PackedVector2Array(0, -50, -10, -10, -50, 0, -10, 10, 0, 50, 10, 10, 50, 0, 10, -10)

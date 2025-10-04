@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq61c6hjwqy1"]
+
+[ext_resource type="Texture2D" uid="uid://be3pjwapleq53" path="res://assets/planet_03.svg" id="1_ogfku"]
+
+[node name="Planet03" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ogfku")
