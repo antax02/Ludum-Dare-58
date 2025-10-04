@@ -1,8 +1,9 @@
 class_name Enemy extends CharacterBody2D
 
 var target: Node2D
-var health: int = 100
-var damage: int = 10
+var max_health: int = 100
+var health: int = max_health
+var attack_damage: int = 10
 var speed: int = 100
 var rotation_speed: int = 5
 var distance: int = 200
@@ -23,3 +24,8 @@ func follow_target(delta):
 	
 	if position.distance_to(target.position) > distance:
 		position = position.move_toward(target.position, speed * delta)
+
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		queue_free()

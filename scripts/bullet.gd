@@ -1,11 +1,12 @@
 extends Area2D
 
-var speed = 1000
+var speed: int = 1000
+var damage: int = 20
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		body.queue_free()
+		body.take_damage(damage)
 	queue_free()
