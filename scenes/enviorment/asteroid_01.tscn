@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cord2n1qox8nr"]
+[gd_scene load_steps=0 format=3 uid="uid://cord2n1qox8nr"]
 
 [node name="Asteroid01" type="AnimatableBody2D"]
 
