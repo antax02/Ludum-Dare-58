@@ -120,8 +120,5 @@ position = Vector2(310, 0)
 [node name="DashCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_3vyb7")
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
