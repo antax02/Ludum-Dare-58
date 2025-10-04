@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var Bullet : PackedScene
+@export var bullet : PackedScene
 var health = 100
 var rotation_speed = 2
 var dash_power = 5
@@ -9,11 +9,14 @@ func _ready():
 	pass
 
 func shoot():
-	var b = Bullet.instantiate()
-	b.global_position = $Shoot.global_position
-	b.global_rotation = $Shoot.global_rotation
+	var b = bullet.instantiate()
+	b.global_position = $ShootLeft.global_position
+	b.global_rotation = $ShootLeft.global_rotation
 	get_parent().add_child(b)
-	b.transform = $Shoot.transform
+	b = bullet.instantiate()
+	b.global_position = $ShootRight.global_position
+	b.global_rotation = $ShootRight.global_rotation
+	get_parent().add_child(b)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):

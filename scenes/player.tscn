@@ -6,7 +6,7 @@
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
-Bullet = ExtResource("2_qhqgy")
+bullet = ExtResource("2_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -105,5 +105,8 @@ polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(59, 0, -13, -42, -64, -42, -82, -8, -82, 9, -64, 42, -13, 42)
 
-[node name="Shoot" type="Marker2D" parent="."]
-position = Vector2(59, 0)
+[node name="ShootLeft" type="Marker2D" parent="."]
+position = Vector2(11, -40)
+
+[node name="ShootRight" type="Marker2D" parent="."]
+position = Vector2(11, 39)
