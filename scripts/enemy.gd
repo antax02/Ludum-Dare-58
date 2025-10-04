@@ -1,7 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
 var target: Node2D
-var health: int = 100
+var max_health: int = 100
+var health: int = max_health
 var damage: int = 10
 var speed: int = 100
 var rotation_speed: int = 5
