@@ -1,23 +1,97 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsttj07uh4amy"]
+[gd_scene load_steps=4 format=3 uid="uid://bsttj07uh4amy"]
 
 [ext_resource type="Script" uid="uid://t4hg1v30dkwu" path="res://scripts/enemy.gd" id="1_a3pup"]
 [ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/bullet.tscn" id="2_38ino"]
-[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_40wdo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjssy"]
-size = Vector2(48, 50)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8e3ao"]
+radius = 24.61977
+height = 87.11611
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_a3pup")
 bullet = ExtResource("2_38ino")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_tjssy")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.17498466, 0.37695655, 1)
-scale = Vector2(0.4375, 0.421875)
-texture = ExtResource("2_40wdo")
+position = Vector2(7, 0)
+rotation = 1.5707964
+scale = Vector2(1.0560619, 1.0560619)
+shape = SubResource("CapsuleShape2D_8e3ao")
 
 [node name="ShootCenter" type="Marker2D" parent="."]
-position = Vector2(41, 0)
+position = Vector2(45, 0)
+
+[node name="BaseEnemyBody" type="Node2D" parent="."]
+scale = Vector2(2.5, 2.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-11, 0)
+color = Color(0.30588236, 0.34901962, 0.40392157, 1)
+polygon = PackedVector2Array(19, -1, 24, -1, 23, 0, 24, 1, 19, 1)
+
+[node name="Polygon2D3" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.33333334, 0.56078434, 0.7921569, 1)
+polygon = PackedVector2Array(21, -1, 20, -1, 18, -3, 17, -3, 19, -1, 19, 1, 17, 3, 18, 3, 20, 1, 21, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.30588236, 0.34901962, 0.40392157, 1)
+polygon = PackedVector2Array(19, -1, 17, -3, 7, -3, 6, -1, 6, 1, 7, 3, 17, 3, 19, 1)
+
+[node name="Polygon2D4" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.46121746, 0.66412556, 0.8789171, 1)
+polygon = PackedVector2Array(17, 0, 15, -2, 10, -2, 8, 0, 10, 2, 15, 2)
+
+[node name="Polygon2D6" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.33333334, 0.56078434, 0.7921569, 1)
+polygon = PackedVector2Array(8, -3, 8, -9, 13, -8, 16, -3)
+
+[node name="Polygon2D7" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+scale = Vector2(1, -1)
+color = Color(0.33333334, 0.56078434, 0.7921569, 1)
+polygon = PackedVector2Array(8, -3, 8, -9, 13, -8, 16, -3)
+
+[node name="Polygon2D8" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(11, -5, 10, -6, 9, -6, 9, -4, 10, -4)
+
+[node name="Polygon2D5" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+color = Color(0.38039216, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(9, -6, 7, -6, 7, -4, 9, -4)
+
+[node name="Polygon2D9" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+scale = Vector2(1, -1)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(11, -5, 10, -6, 9, -6, 9, -4, 10, -4)
+
+[node name="Polygon2D10" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(-13, 0)
+scale = Vector2(1, -1)
+color = Color(0.38039216, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(9, -6, 7, -6, 7, -4, 9, -4)
+
+[node name="Polygon2D11" type="Polygon2D" parent="BaseEnemyBody"]
+color = Color(0.99999446, 0.36652976, 0.39494032, 1)
+polygon = PackedVector2Array(-6, -6, -10, -5, -6, -4)
+
+[node name="Polygon2D12" type="Polygon2D" parent="BaseEnemyBody"]
+color = Color(1, 0.52, 0.52, 1)
+polygon = PackedVector2Array(-6, -6, -8, -5, -6, -4)
+
+[node name="Polygon2D13" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(0, 10)
+color = Color(0.99999446, 0.36652976, 0.39494032, 1)
+texture_scale = Vector2(1, -1)
+polygon = PackedVector2Array(-6, -6, -10, -5, -6, -4)
+
+[node name="Polygon2D14" type="Polygon2D" parent="BaseEnemyBody"]
+position = Vector2(0, 10)
+color = Color(1, 0.52, 0.52, 1)
+texture_scale = Vector2(1, -1)
+polygon = PackedVector2Array(-6, -6, -8, -5, -6, -4)
