@@ -1,20 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://pug080u7rka1"]
+[gd_scene load_steps=3 format=3 uid="uid://pug080u7rka1"]
 
 [ext_resource type="Script" uid="uid://n0il7q3u3nx3" path="res://scripts/bullet.gd" id="1_y25gk"]
-[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_l5glv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(12, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkf8s"]
+radius = 6.9999814
+height = 35.999905
 
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_y25gk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.1920929e-06, 1.4210855e-14)
-scale = Vector2(0.093749985, 0.031249996)
-texture = ExtResource("2_l5glv")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.89, 0.53400004, 0.6704666, 0.37254903)
+polygon = PackedVector2Array(13, 0, 10, -3, 0, -4, -27, 0, 0, 4, 10, 3)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.8885316, 0.8071477, 0.86830044, 1)
+polygon = PackedVector2Array(9, 0, 5, -2, 0, -2, -14, 0, 0, 2, 5, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dqkch")
+visible = false
+position = Vector2(0, 1.1920929e-07)
+rotation = 1.5684679
+shape = SubResource("CapsuleShape2D_mkf8s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
