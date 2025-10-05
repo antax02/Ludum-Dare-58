@@ -19,9 +19,8 @@ config/icon="res://icon.svg"
 
 MoneyManager="*res://scripts/global/money_manager.gd"
 ButtonStyler="*res://scripts/global/button_styler.gd"
-Global="*res://scripts/global/global.gd"
-LevelManager="*res://scripts/global/level_manager.gd"
 Checkpoint="*res://scripts/global/global_checkpoint.gd"
+Global="*res://scripts/global/global.gd"
 SignalBus="*res://scripts/global/signal_bus.gd"
 
 [display]

@@ -8,6 +8,7 @@ var max_speed: int = 200
 var acceleration: int = 800
 var rotation_speed: int = 7
 var distance: int = 400
+var global_distance: int = 2000
 var bullet_cooldown: float = 0.5
 var bullet_timer: float = 0
 @export var bullet: PackedScene
@@ -33,7 +34,7 @@ func follow_target(delta):
 	target = get_tree().get_first_node_in_group("player")
 	rotation = lerp_angle(rotation, (target.global_position - global_position).angle(), -(cos(PI * rotation_speed * delta) - 1) / 2)
 	
-	if position.distance_to(target.position) > distance:
+	if position.distance_to(target.position) > distance and position.distance_to(target.position) < global_distance:
 		if position.distance_to(target.position) > (distance + 100):
 			velocity += (target.global_position - global_position).normalized() * acceleration * delta
 	else:
