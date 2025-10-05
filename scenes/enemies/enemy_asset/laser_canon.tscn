@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://g3d6otker7yj"]
+
+[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="1_t1uvn"]
+
+[node name="LaserCanon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 0)
+scale = Vector2(0.34375, 0.062499996)
+texture = ExtResource("1_t1uvn")
+
+[node name="ShootLaser" type="Marker2D" parent="."]
+position = Vector2(44, 0)

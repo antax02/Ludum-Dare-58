@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://hdrxntv4m2bt"]
+
+[ext_resource type="Script" uid="uid://u87e1cc2j0uf" path="res://scripts/credits.gd" id="1_jkvjv"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_pqmjv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="credits" type="PanelContainer" parent="."]
+self_modulate = Color(0.73665017, 0.4896226, 0.36392662, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jkvjv")
+
+[node name="margin" type="MarginContainer" parent="credits"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="container" type="VBoxContainer" parent="credits/margin"]
+layout_mode = 2
+theme_override_constants/separation = 84
+
+[node name="Credits" type="Label" parent="credits/margin/container"]
+modulate = Color(0.86808217, 0.5562146, 0.36622795, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pqmjv")
+theme_override_font_sizes/font_size = 181
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="credits/margin/container"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_pqmjv")
+theme_override_font_sizes/font_size = 40
+text = "Anton"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="credits/margin/container"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_pqmjv")
+theme_override_font_sizes/font_size = 40
+text = "Alvar"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="credits/margin/container"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_pqmjv")
+theme_override_font_sizes/font_size = 40
+text = "Julia"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="credits/margin/container"]
+layout_mode = 2
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_right = 600
+
+[node name="back" type="Button" parent="credits/margin/container/MarginContainer"]
+self_modulate = Color(0.96585315, 0.6163717, 0.4722609, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Back"
+
+[connection signal="pressed" from="credits/margin/container/MarginContainer/back" to="credits" method="_on_back_pressed"]
