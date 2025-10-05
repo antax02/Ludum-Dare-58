@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const WORLD = preload("res://scenes/world.tscn")
+const WORLD = preload("res://scenes/level_1.tscn")
 @onready var play_button = $marign/layout/buttons/start
 @onready var credits_button = $marign/layout/buttons/credits
 @onready var quit_button = $marign/layout/buttons/quit
