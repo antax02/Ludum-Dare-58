@@ -2,6 +2,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		MoneyManager.level_load_money = MoneyManager.money
 		# Increment current level because the player finished the previous one
 		Global.current_level += 1
 
