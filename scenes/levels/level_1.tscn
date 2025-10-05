@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bs4u3p8mk0b4h"]
+[gd_scene load_steps=16 format=3 uid="uid://bs4u3p8mk0b4h"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2os1m"]
@@ -11,12 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit_zone.tscn" id="10_2cbcq"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/bosses/boss_area.tscn" id="12_iav0o"]
-[ext_resource type="PackedScene" path="res://scenes/ui/boss_ui.tscn" id="13_dnkej"]
-[ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="13_mm8aj"]
-[ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="14_mm8aj"]
-[ext_resource type="PackedScene" uid="uid://cu6vgbilb3rsy" path="res://scenes/enemies/bosses/boss_area.tscn" id="12_iav0o"]
 [ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="13_dnkej"]
 [ext_resource type="PackedScene" uid="uid://cxhsht6ng72y8" path="res://void_worm.tscn" id="13_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="14_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="15_wtwp4"]
 
 [node name="Level1" type="Node2D"]
 
@@ -57,5 +55,8 @@ boss_name = "Gunship"
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
 visible = false
+
 [node name="VoidWorm" parent="." instance=ExtResource("13_mm8aj")]
 position = Vector2(-753, 407)
+
+[node name="Wallet" parent="." instance=ExtResource("15_wtwp4")]

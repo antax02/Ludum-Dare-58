@@ -46,7 +46,8 @@ func take_damage(damage):
 	if health <= 0:
 		MoneyManager.money += destruction_value
 		print(MoneyManager.money)
-		emit_signal("counter_update")
+		#emit_signal("counter_update")
+		SignalBus.counter_update.emit()
 		queue_free()
 
 func _physics_process(delta):
