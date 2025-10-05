@@ -10,7 +10,3 @@ func _on_retry_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_packed(MAIN_MENU)
-
-func show_death_screen():
-	#$death_screen.show()
-	pass
