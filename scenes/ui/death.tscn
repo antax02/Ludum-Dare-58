@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_hwssb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiw81"]
-bg_color = Color(0, 0.008348758, 0.004294471, 0.8235294)
+bg_color = Color(0.0680935, 0.031449042, 0.07950186, 0.8235294)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
