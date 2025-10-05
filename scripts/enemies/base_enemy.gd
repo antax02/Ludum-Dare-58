@@ -20,6 +20,7 @@ func _ready():
 	setup()
 
 func shoot():
+	bullet_timer = 0
 	var b = bullet.instantiate()
 	b.global_position = $ShootCenter.global_position
 	b.global_rotation = $ShootCenter.global_rotation
@@ -54,7 +55,6 @@ func _physics_process(delta):
 	
 	if position.distance_to(target.position) < (distance + 100) and bullet_timer >= bullet_cooldown:
 		shoot()
-		bullet_timer = 0
 	
 	custom_physics_process(delta)
 	
