@@ -12,12 +12,13 @@ extends CharacterBody2D
 @onready var gunship_torpedo_launcher: Node2D = $GunshipTorpedoLauncher
 @onready var gunship_torpedo_launcher_2: Node2D = $GunshipTorpedoLauncher2
 
-
 var player: Node2D
 var left_front_battery: Array[Node2D] = []
 var left_back_battery: Array[Node2D] = []
 var right_front_battery: Array[Node2D] = []
 var right_back_battery: Array[Node2D] = []
+
+var health = 500
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -49,9 +50,12 @@ func _physics_process(delta: float) -> void:
 				set_battery_enable(left_front_battery, true)
 			gunship_torpedo_launcher.enabled = true
 		
-		
-
 func set_battery_enable(battery: Array[Node2D], state: bool) -> void:
 	for turret in battery:
 		if turret:
 			turret.enabled = state
+
+func take_damage(dmg):
+	health -= dmg
+	if health <= 0:
+		queue_free()
