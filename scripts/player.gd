@@ -30,7 +30,7 @@ func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		# money += 10
-		#get_tree().get_root().get_node("/root/DeathScreen").show_death_screen()
+		get_tree().get_first_node_in_group("death").visible = true
 		queue_free()
 
 func _physics_process(delta):
