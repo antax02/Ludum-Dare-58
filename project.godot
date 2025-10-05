@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MoneyManager="*res://scripts/money_manager.gd"
 ButtonStyler="*res://scripts/button_styler.gd"
+DeathScreen="*res://scripts/death_screen.gd"
 
 [display]
 
@@ -73,7 +74,6 @@ move_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
-
 
 [rendering]
 
