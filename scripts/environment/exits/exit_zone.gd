@@ -2,6 +2,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		MoneyManager.level_load_money = MoneyManager.money
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		var file_name = current_scene_file.get_file().get_basename()  # e.g. "level_1"
 
