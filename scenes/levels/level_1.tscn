@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs4u3p8mk0b4h"]
+[gd_scene load_steps=11 format=3 uid="uid://bs4u3p8mk0b4h"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2os1m"]
@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/environment/asteroid_01.tscn" id="7_7nomh"]
 [ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="8_1s4pk"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_x2xxo"]
-[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit.tscn" id="10_2cbcq"]
-[ext_resource type="PackedScene" uid="uid://vcm07tfr8thp" path="res://scenes/ui/exit_ui.tscn" id="11_2os1m"]
+[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit_zone.tscn" id="10_2cbcq"]
 
-[node name="World" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2y5yt")]
 position = Vector2(3, 18)
@@ -38,9 +37,4 @@ position = Vector2(-495, -164)
 visible = false
 
 [node name="ExitZone" parent="." instance=ExtResource("10_2cbcq")]
-position = Vector2(7, 404)
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="ExitUi" parent="CanvasLayer2" instance=ExtResource("11_2os1m")]
-visible = false
+position = Vector2(-35, 251)

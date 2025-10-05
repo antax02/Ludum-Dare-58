@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 MoneyManager="*res://scripts/global/money_manager.gd"
-LevelManager="*res://scripts/global/level_manager.gd"
 ButtonStyler="*res://scripts/global/button_styler.gd"
+Global="*res://scripts/global/global.gd"
 
 [display]
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://kck2gexb5vkx"]
+
+[ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_jwwn2"]
+[ext_resource type="PackedScene" uid="uid://bqpdull5vt8ke" path="res://scenes/levels/next_level/shop_exit_zone.tscn" id="2_f1n2c"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jwwn2")]
+position = Vector2(3, 4)
+
+[node name="ShopExitZone" parent="." instance=ExtResource("2_f1n2c")]
+position = Vector2(-2, 196)
