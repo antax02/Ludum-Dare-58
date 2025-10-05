@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8rcosa3x6lx3"]
+
+[node name="VoidWormSegment" type="PathFollow2D"]
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Body"]
+color = Color(0.404836, 0.3433225, 0.53015995, 1)
+polygon = PackedVector2Array(0, -62, 45, -50, 64, 4, 34, 49, -18, 57, -53, 33, -62, -15, -39, -50)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Body"]
+color = Color(0.34311834, 0.28658453, 0.4551667, 1)
+polygon = PackedVector2Array(-54, -13, -39, -35, -19, -46, -1, -55, 23, -48, 44, -28, 51, 1, 41, 24, 29, 41, -16, 48, -37, 27, -51, 10)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Body"]
+color = Color(0.2575531, 0.21288684, 0.3493667, 1)
+polygon = PackedVector2Array(-39, -13, -27, -30, -6, -41, 16, -41, 35, -19, 39, -2, 33, 12, 15, 33, -11, 30, -37, 11)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Body"]
+color = Color(0.20730856, 0.17040336, 0.2876026, 1)
+polygon = PackedVector2Array(-23, -11, -12, -29, 11, -29, 22, -15, 19, 9, -2, 14, -21, 8)
