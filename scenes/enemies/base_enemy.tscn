@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t4hg1v30dkwu" path="res://scripts/enemies/base_enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_40wdo"]
-[ext_resource type="Script" uid="uid://n0il7q3u3nx3" path="res://scripts/bullet.gd" id="2_lkvl6"]
+[ext_resource type="Script" uid="uid://n0il7q3u3nx3" path="res://scripts/projectiles/bullet.gd" id="2_lkvl6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkf8s"]
 radius = 6.9999814

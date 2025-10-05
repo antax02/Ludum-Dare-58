@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vcm07tfr8thp"]
 
-[ext_resource type="Script" uid="uid://jjxdu52l1ejc" path="res://scripts/exit_ui.gd" id="1_1oqrs"]
+[ext_resource type="Script" uid="uid://jjxdu52l1ejc" path="res://scripts/ui/exit_ui.gd" id="1_1oqrs"]
 
 [node name="ExitUi" type="Control" groups=["exit"]]
 layout_mode = 3

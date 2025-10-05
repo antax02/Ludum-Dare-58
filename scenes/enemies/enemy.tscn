@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsttj07uh4amy"]
 
-[ext_resource type="Script" uid="uid://t4hg1v30dkwu" path="res://scripts/enemy.gd" id="1_a3pup"]
-[ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/bullet.tscn" id="2_38ino"]
+[ext_resource type="Script" uid="uid://t4hg1v30dkwu" path="res://scripts/enemies/base_enemy.gd" id="1_a3pup"]
+[ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/projectiles/bullet.tscn" id="2_38ino"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8e3ao"]
 radius = 24.61977

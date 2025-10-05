@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="1_w467i"]
 [ext_resource type="Script" uid="uid://dy8ht5vbfhkn5" path="res://scripts/enemies/charge_enemy.gd" id="2_xkf83"]
-[ext_resource type="PackedScene" uid="uid://dvumfkhw1clye" path="res://scenes/laser.tscn" id="3_5jdr2"]
+[ext_resource type="PackedScene" uid="uid://dvumfkhw1clye" path="res://scenes/projectiles/laser.tscn" id="3_5jdr2"]
 [ext_resource type="PackedScene" uid="uid://g3d6otker7yj" path="res://scenes/enemies/enemy_asset/laser_canon.tscn" id="3_xkf83"]
 
 [node name="Enemy" instance=ExtResource("1_w467i")]

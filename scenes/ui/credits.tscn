@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hdrxntv4m2bt"]
 
-[ext_resource type="Script" uid="uid://u87e1cc2j0uf" path="res://scripts/credits.gd" id="1_jkvjv"]
+[ext_resource type="Script" uid="uid://u87e1cc2j0uf" path="res://scripts/ui/credits.gd" id="1_jkvjv"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_pqmjv"]
 
 [node name="Control" type="Control"]

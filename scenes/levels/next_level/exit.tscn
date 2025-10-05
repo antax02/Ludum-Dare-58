@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu470xwrb73hy"]
+
+[ext_resource type="Script" uid="uid://cuqij5w5tbe3j" path="res://exit.gd" id="1_l0aq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38eme"]
+size = Vector2(297, 78)
+
+[node name="ExitZone" type="Area2D" groups=["exit"]]
+script = ExtResource("1_l0aq0")
+
+[node name="zone" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_38eme")
+debug_color = Color(0.9691512, 0, 0.46634603, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

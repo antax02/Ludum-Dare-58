@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://cbry1nprs0bwf"]
 
-[ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player.tscn" id="1_pimnq"]
+[ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_pimnq"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="3_n6eey"]
-[ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/enviorment/enviorment.tscn" id="4_qi5uv"]
-[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/enviorment/star_01.tscn" id="5_f6egh"]
-[ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/enviorment/star_02.tscn" id="6_t4txi"]
-[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/enviorment/asteroid_01.tscn" id="7_apo5x"]
-[ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/bosses/gunship.tscn" id="8_josfm"]
+[ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/environment/environment.tscn" id="4_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/environment/star_01.tscn" id="5_f6egh"]
+[ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/environment/star_02.tscn" id="6_t4txi"]
+[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/environment/asteroid_01.tscn" id="7_apo5x"]
+[ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="8_josfm"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_lgrx1"]
-[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/exit.tscn" id="10_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit.tscn" id="10_2bnyt"]
 
 [node name="World" type="Node2D"]
 

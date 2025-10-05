@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MoneyManager="*res://scripts/money_manager.gd"
+MoneyManager="*res://scripts/global/money_manager.gd"
 ButtonStyler="*res://scripts/button_styler.gd"
-LevelManager="*res://scripts/level_manager.gd"
+LevelManager="*res://scripts/global/level_manager.gd"
 
 [display]
 

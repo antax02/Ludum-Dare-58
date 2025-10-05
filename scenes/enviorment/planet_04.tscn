@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://vkew0f6jy525"]
-
-[ext_resource type="Texture2D" uid="uid://bl3guhit0vvb3" path="res://assets/planet_04.png" id="1_bswxe"]
-
-[node name="Planet04" type="Sprite2D"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_bswxe")
