@@ -1,13 +1,40 @@
-[gd_scene format=3 uid="uid://bji4jx6ej8fyj"]
+[gd_scene load_steps=2 format=3 uid="uid://bji4jx6ej8fyj"]
 
-[node name="wallet" type="CanvasLayer"]
+[ext_resource type="Script" uid="uid://d1hkq74pu4hmx" path="res://scripts/ui/wallet.gd" id="1_51v4g"]
+
+[node name="Wallet" type="CanvasLayer"]
+script = ExtResource("1_51v4g")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 876.0
+offset_right = -1613.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 60
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="coin_count" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 25
+text = "coin count"
+
+[connection signal="counter_update" from="." to="." method="_on_counter_update"]

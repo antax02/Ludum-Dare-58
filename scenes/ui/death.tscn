@@ -79,6 +79,7 @@ theme_override_constants/separation = 44
 
 [node name="retry" type="Button" parent="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons"]
 self_modulate = Color(1, 0.9047371, 0.86018556, 1)
+z_index = 10
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -90,6 +91,7 @@ text = "Retry"
 
 [node name="main_menu" type="Button" parent="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons"]
 self_modulate = Color(1, 0.9047371, 0.86018556, 1)
+z_index = 9
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)

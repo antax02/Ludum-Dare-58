@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbry1nprs0bwf"]
+[gd_scene load_steps=12 format=3 uid="uid://cbry1nprs0bwf"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_pimnq"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2bnyt"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/environment/environment.tscn" id="4_qi5uv"]
 [ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/environment/star_01.tscn" id="5_f6egh"]
 [ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/environment/star_02.tscn" id="6_t4txi"]
+[ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="8_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="8_josfm"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_lgrx1"]
+[ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="9_n6eey"]
 
 [sub_resource type="GDScript" id="GDScript_ugcn1"]
 script/source = "extends Node2D
@@ -35,6 +37,10 @@ stars = Array[PackedScene]([ExtResource("5_f6egh"), ExtResource("6_t4txi")])
 
 [node name="Gunship" parent="." instance=ExtResource("8_josfm")]
 position = Vector2(-645, 361)
+
+[node name="wallet" parent="." instance=ExtResource("8_2bnyt")]
+
+[node name="HealthBar" parent="." instance=ExtResource("9_n6eey")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
