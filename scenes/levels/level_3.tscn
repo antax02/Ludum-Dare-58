@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbry1nprs0bwf"]
+
+[ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player.tscn" id="1_pimnq"]
+[ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="3_n6eey"]
+[ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/enviorment/enviorment.tscn" id="4_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/enviorment/star_01.tscn" id="5_f6egh"]
+[ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/enviorment/star_02.tscn" id="6_t4txi"]
+[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/enviorment/asteroid_01.tscn" id="7_apo5x"]
+[ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/bosses/gunship.tscn" id="8_josfm"]
+[ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_lgrx1"]
+[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/exit.tscn" id="10_2bnyt"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_pimnq")]
+position = Vector2(3, 18)
+
+[node name="Enemy" parent="." instance=ExtResource("2_2bnyt")]
+position = Vector2(431, -14)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_n6eey")]
+position = Vector2(205, -173)
+
+[node name="Enviorment" parent="." instance=ExtResource("4_qi5uv")]
+position = Vector2(330, 112)
+stars = Array[PackedScene]([ExtResource("5_f6egh"), ExtResource("6_t4txi")])
+
+[node name="Asteroid01" parent="." instance=ExtResource("7_apo5x")]
+position = Vector2(-169, -103)
+
+[node name="Gunship" parent="." instance=ExtResource("8_josfm")]
+position = Vector2(-645, 361)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_lgrx1")]
+visible = false
+
+[node name="ExitZone" parent="." instance=ExtResource("10_2bnyt")]
+position = Vector2(317, 407)

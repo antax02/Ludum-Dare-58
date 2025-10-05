@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1jmqixrhgh6r"]
+[gd_scene load_steps=6 format=3 uid="uid://b1jmqixrhgh6r"]
 
 [ext_resource type="Script" uid="uid://lmrn143q65tk" path="res://scripts/death_screen.gd" id="1_yiw81"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_hwssb"]
@@ -12,16 +12,17 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwssb"]
 bg_color = Color(0.14982063, 0.027693724, 0.0035963478, 0.74509805)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 4
-border_color = Color(0.5239852, 0.0059223925, 0.049076974, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
-corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvjni"]
+bg_color = Color(0.25339368, 0, 0.0215356, 0.74509805)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Death" type="Control"]
 layout_mode = 3
@@ -85,7 +86,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_hwssb")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_hwssb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hwssb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bvjni")
 text = "Retry"
 
 [node name="main_menu" type="Button" parent="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons"]
@@ -96,7 +97,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_hwssb")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_hwssb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hwssb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bvjni")
 text = "Main Menu
 "
 

@@ -1,6 +1,6 @@
 extends Control
 
-const WORLD = preload("res://scenes/level_1.tscn")
+const WORLD = preload("res://scenes/levels/level_1.tscn")
 const MAIN_MENU = preload("res://scenes/ui/main_menu.tscn")
 
 func _on_retry_pressed() -> void:
