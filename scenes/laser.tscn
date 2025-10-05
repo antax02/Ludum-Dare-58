@@ -16,3 +16,5 @@ polygon = PackedVector2Array(-14, 8, 133, 8, 133, -7, -14, -7)
 visible = false
 position = Vector2(59.5, 0)
 shape = SubResource("RectangleShape2D_5no5p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
