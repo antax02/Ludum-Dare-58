@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtmq1kbcfmtda"]
+[gd_scene load_steps=4 format=3 uid="uid://dtmq1kbcfmtda"]
 
 [ext_resource type="Script" uid="uid://dxde0nti8nfsf" path="res://scripts/gunship.gd" id="1_frslv"]
 [ext_resource type="PackedScene" uid="uid://biww4qk4w2o6u" path="res://scenes/bosses/gunship_centry.tscn" id="1_wf82b"]
+[ext_resource type="PackedScene" uid="uid://brsfjfvxbu2fe" path="res://scenes/bosses/gunship_torpedo_launcher.tscn" id="3_ce88s"]
 
 [node name="Gunship" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_frslv")
 
 [node name="BodyDep" type="Node2D" parent="."]
 visible = false
-position = Vector2(50000, 0)
+position = Vector2(50000000, 0)
 scale = Vector2(1.5, 1.5)
 
 [node name="Left" type="Node2D" parent="BodyDep"]
@@ -251,6 +252,14 @@ rotation = -3.1415925
 position = Vector2(264, 42)
 rotation = -3.1415925
 
+[node name="GunshipTorpedoLauncher" parent="." instance=ExtResource("3_ce88s")]
+position = Vector2(149, -88)
+
+[node name="GunshipTorpedoLauncher2" parent="." instance=ExtResource("3_ce88s")]
+position = Vector2(149, 88)
+rotation = -3.1415927
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(1.8, 1.8)
 polygon = PackedVector2Array(-150, 1, -125, 72, -34, 83, 30, 83, 281, 72, 333, 0, 281, -72, 29, -82, -34, -82, -125, -73)
