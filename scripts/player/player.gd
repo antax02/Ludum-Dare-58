@@ -12,19 +12,21 @@ func _ready():
 
 func shoot():
 	var b = bullet.instantiate()
-	b.global_position = $ShootLeft.global_position
-	b.global_rotation = $ShootLeft.global_rotation
-	b.target_group = "enemies"
-	b.ignore_user = "player"
-	b.damage = 20
-	get_parent().add_child(b)
+	if b:
+		b.global_position = $ShootLeft.global_position
+		b.global_rotation = $ShootLeft.global_rotation
+		b.target_group = "enemies"
+		b.ignore_user = "player"
+		b.damage = 20
+		get_parent().add_child(b)
 	b = bullet.instantiate()
-	b.global_position = $ShootRight.global_position
-	b.global_rotation = $ShootRight.global_rotation
-	b.target_group = "enemies"
-	b.ignore_user = "player"
-	b.damage = 20
-	get_parent().add_child(b)
+	if b:
+		b.global_position = $ShootRight.global_position
+		b.global_rotation = $ShootRight.global_rotation
+		b.target_group = "enemies"
+		b.ignore_user = "player"
+		b.damage = 20
+		get_parent().add_child(b)
 	
 func take_damage(damage):
 	health -= damage
@@ -34,6 +36,8 @@ func take_damage(damage):
 		#queue_free()
 
 func _physics_process(delta):
+	
+	
 	var dash_target = $Area2D
 	dash_cooldown += delta
 	

@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/boss_ui.tscn" id="13_dnkej"]
 [ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="13_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="14_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://cu6vgbilb3rsy" path="res://scenes/enemies/bosses/boss_area.tscn" id="12_iav0o"]
+[ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="13_dnkej"]
+[ext_resource type="PackedScene" uid="uid://cxhsht6ng72y8" path="res://void_worm.tscn" id="13_mm8aj"]
 
 [node name="Level1" type="Node2D"]
 
@@ -38,6 +41,8 @@ position = Vector2(-495, -164)
 [node name="ExitZone" parent="." instance=ExtResource("10_2cbcq")]
 position = Vector2(-35, 251)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
 [node name="BossArea" parent="." instance=ExtResource("12_iav0o")]
 position = Vector2(676, -198)
 
@@ -52,3 +57,5 @@ boss_name = "Gunship"
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
 visible = false
+[node name="VoidWorm" parent="." instance=ExtResource("13_mm8aj")]
+position = Vector2(-753, 407)
