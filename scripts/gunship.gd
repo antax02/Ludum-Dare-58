@@ -9,6 +9,9 @@ extends CharacterBody2D
 @onready var right_front_1: Node2D = $Turrets/RightFront1
 @onready var right_front_2: Node2D = $Turrets/RightFront2
 
+@onready var gunship_torpedo_launcher: Node2D = $GunshipTorpedoLauncher
+@onready var gunship_torpedo_launcher_2: Node2D = $GunshipTorpedoLauncher2
+
 
 var player: Node2D
 var left_front_battery: Array[Node2D] = []
@@ -29,6 +32,8 @@ func _physics_process(delta: float) -> void:
 	set_battery_enable(left_back_battery, false)
 	set_battery_enable(right_front_battery, false)
 	set_battery_enable(right_back_battery, false)
+	gunship_torpedo_launcher.enabled = false
+	gunship_torpedo_launcher_2.enabled = false
 	if player:
 		var angle_to_player = (player.global_position - global_position).angle()
 		if angle_to_player >= 0:
@@ -36,11 +41,15 @@ func _physics_process(delta: float) -> void:
 				set_battery_enable(right_back_battery, true)
 			else:
 				set_battery_enable(right_front_battery, true)
+			gunship_torpedo_launcher_2.enabled = true
 		else:
 			if angle_to_player < -PI/2:
 				set_battery_enable(left_back_battery, true)
 			else:
-				set_battery_enable(left_front_battery, true) 
+				set_battery_enable(left_front_battery, true)
+			gunship_torpedo_launcher.enabled = true
+		
+		
 
 func set_battery_enable(battery: Array[Node2D], state: bool) -> void:
 	for turret in battery:
