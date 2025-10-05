@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://85vgcgrse4mm"]
+
+[ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player.tscn" id="1_6cvei"]
+[ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_que50"]
+[ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="3_hey2k"]
+[ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/enviorment/enviorment.tscn" id="4_172wr"]
+[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/enviorment/star_01.tscn" id="5_g2hoc"]
+[ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/enviorment/star_02.tscn" id="6_fldb1"]
+[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/enviorment/asteroid_01.tscn" id="7_guvtl"]
+[ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/bosses/gunship.tscn" id="8_igmy8"]
+[ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_wdtqu"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6cvei")]
+position = Vector2(3, 18)
+
+[node name="Enemy" parent="." instance=ExtResource("2_que50")]
+position = Vector2(431, -14)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_hey2k")]
+position = Vector2(205, -173)
+
+[node name="Enviorment" parent="." instance=ExtResource("4_172wr")]
+stars = Array[PackedScene]([ExtResource("5_g2hoc"), ExtResource("6_fldb1")])
+
+[node name="Asteroid01" parent="." instance=ExtResource("7_guvtl")]
+visible = false
+position = Vector2(506, 178)
+
+[node name="Gunship" parent="." instance=ExtResource("8_igmy8")]
+visible = false
+position = Vector2(-495, -164)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_wdtqu")]
+visible = false
