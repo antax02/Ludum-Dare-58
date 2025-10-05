@@ -18,7 +18,9 @@ var left_back_battery: Array[Node2D] = []
 var right_front_battery: Array[Node2D] = []
 var right_back_battery: Array[Node2D] = []
 
-var health = 500
+var max_health = 500
+var health = max_health
+
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")

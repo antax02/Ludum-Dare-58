@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://biww4qk4w2o6u" path="res://scenes/enemies/bosses/gunship_centry.tscn" id="1_wf82b"]
 [ext_resource type="PackedScene" uid="uid://brsfjfvxbu2fe" path="res://scenes/enemies/bosses/gunship_torpedo_launcher.tscn" id="3_ce88s"]
 
-[node name="Gunship" type="CharacterBody2D" groups=["enemies"]]
+[node name="Gunship" type="CharacterBody2D" groups=["boss", "enemies"]]
 script = ExtResource("1_frslv")
 
 [node name="BodyDep" type="Node2D" parent="."]
@@ -260,6 +260,5 @@ position = Vector2(149, 88)
 rotation = -3.1415927
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(1.8, 1.8)
 polygon = PackedVector2Array(-150, 1, -125, 72, -34, 83, 30, 83, 281, 72, 333, 0, 281, -72, 29, -82, -34, -82, -125, -73)
