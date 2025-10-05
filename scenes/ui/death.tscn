@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_hwssb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiw81"]
-bg_color = Color(0, 0, 0, 0.9607843)
+bg_color = Color(0.0680935, 0.031449042, 0.07950186, 0.8235294)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -34,7 +34,6 @@ grow_vertical = 2
 script = ExtResource("1_yiw81")
 
 [node name="death_screen" type="PanelContainer" parent="."]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
