@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 MoneyManager="*res://scripts/money_manager.gd"
 ButtonStyler="*res://scripts/button_styler.gd"
-DeathScreen="*res://scripts/death_screen.gd"
 
 [display]
 
@@ -31,6 +30,7 @@ window/stretch/mode="viewport"
 
 player=""
 enemies=""
+death=""
 
 [input]
 

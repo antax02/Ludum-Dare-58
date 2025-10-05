@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yiw81")
 
 [node name="death_screen" type="PanelContainer" parent="."]
 self_modulate = Color(0, 0, 0, 0.50980395)
@@ -24,7 +25,6 @@ offset_right = -449.0
 offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yiw81")
 
 [node name="MarginContainer" type="MarginContainer" parent="death_screen"]
 layout_mode = 2
@@ -73,5 +73,5 @@ theme_override_font_sizes/font_size = 25
 text = "Main Menu
 "
 
-[connection signal="pressed" from="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons/retry" to="death_screen" method="_on_retry_pressed"]
-[connection signal="pressed" from="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons/main_menu" to="death_screen" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="death_screen/MarginContainer/VBoxContainer/MarginContainer/buttons/main_menu" to="." method="_on_main_menu_pressed"]
