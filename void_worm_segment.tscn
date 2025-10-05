@@ -1,4 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://8rcosa3x6lx3"]
+[gd_scene load_steps=2 format=3 uid="uid://8rcosa3x6lx3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qk3um"]
+radius = 54.00926
 
 [node name="VoidWormSegment" type="PathFollow2D"]
 
@@ -19,3 +22,8 @@ polygon = PackedVector2Array(-39, -13, -27, -30, -6, -41, 16, -41, 35, -19, 39, 
 [node name="Polygon2D4" type="Polygon2D" parent="Body"]
 color = Color(0.20730856, 0.17040336, 0.2876026, 1)
 polygon = PackedVector2Array(-23, -11, -12, -29, 11, -29, 22, -15, 19, 9, -2, 14, -21, 8)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("CircleShape2D_qk3um")

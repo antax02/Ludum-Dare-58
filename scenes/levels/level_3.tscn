@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbry1nprs0bwf"]
+[gd_scene load_steps=13 format=3 uid="uid://cbry1nprs0bwf"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_pimnq"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2bnyt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="8_josfm"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_lgrx1"]
 [ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="9_n6eey"]
+[ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="11_n6eey"]
 
 [sub_resource type="GDScript" id="GDScript_ugcn1"]
 script/source = "extends Node2D
@@ -46,3 +47,7 @@ position = Vector2(-645, 361)
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_lgrx1")]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("11_n6eey")
+target = NodePath("../Player")

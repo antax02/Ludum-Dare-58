@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlukhtdc5xlsr"]
+[gd_scene load_steps=6 format=3 uid="uid://dlukhtdc5xlsr"]
 
 [ext_resource type="Script" uid="uid://xgly6ivcsmm1" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/projectiles/bullet.tscn" id="2_qhqgy"]
@@ -6,17 +6,31 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(152, 104)
 
+[sub_resource type="Animation" id="Animation_dovo2"]
+resource_name = "hide"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.23333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide_dash_effect"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmlin"]
+_data = {
+&"hide": SubResource("Animation_dovo2")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 bullet = ExtResource("2_qhqgy")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.05
-drag_top_margin = 0.05
-drag_right_margin = 0.05
-drag_bottom_margin = 0.05
 
 [node name="Body" type="Node2D" parent="."]
 position = Vector2(15.300003, 0)
@@ -43,13 +57,23 @@ polygon = PackedVector2Array(-6, 11, -5, 43, 0, 52, 5, 43, 6, 11, 0, 20)
 color = Color(0.30588236, 0.34509805, 0.40392157, 1)
 polygon = PackedVector2Array(-14, 54, -11, 48, -6, 48, -3, 54)
 
+[node name="LeftExhaustLow" type="Polygon2D" parent="Body/LeftEngine"]
+position = Vector2(-2.999998, 20.300003)
+scale = Vector2(0.68620974, 0.68229365)
+color = Color(0.7420294, 0.4182081, 0.5230039, 1)
+polygon = PackedVector2Array(-13, 66, -11.999996, 73.3, -9.999996, 72.3, -9.999996, 76.3, -7.9999967, 75.3, -6.9999967, 77.3, -6, 70, -5, 71, -4, 66)
+
+[node name="LeftExhaustAccent" type="Polygon2D" parent="Body/LeftEngine/LeftExhaustLow"]
+color = Color(0.8666631, 0.60651547, 0.6834131, 1)
+polygon = PackedVector2Array(-11.999997, 66, -11.999997, 67.3, -10.999996, 72.3, -9.999996, 70.3, -7.999997, 73.3, -6.999997, 67.3, -6, 69, -5, 66)
+
 [node name="LeftExhaust" type="Polygon2D" parent="Body/LeftEngine"]
 color = Color(0.7420294, 0.4182081, 0.5230039, 1)
-polygon = PackedVector2Array(-13, 66, -12, 73, -11, 72, -10, 80, -9, 79, -8, 82, -7, 80, -6, 70, -5, 71, -4, 66)
+polygon = PackedVector2Array(-13, 66, -11.999996, 78.3, -10.999996, 75.3, -9.999996, 83.3, -8.999996, 82.3, -7.999996, 87.3, -7, 80, -6, 70, -5, 71, -4, 66)
 
 [node name="LeftExhaustAccent" type="Polygon2D" parent="Body/LeftEngine/LeftExhaust"]
 color = Color(0.8666631, 0.60651547, 0.6834131, 1)
-polygon = PackedVector2Array(-11, 66, -10, 72, -9, 71, -8, 74, -7, 72, -7, 68, -6, 69, -5, 66)
+polygon = PackedVector2Array(-11.999997, 66, -10.999996, 70.3, -10.999996, 73.3, -9.999996, 75.3, -8.999996, 74.3, -7.9999967, 77.3, -7, 72, -7, 68, -6, 69, -5, 66)
 
 [node name="LeftEngineNozzle" type="Polygon2D" parent="Body/LeftEngine"]
 color = Color(0.37897637, 0.4236128, 0.4905643, 1)
@@ -60,13 +84,23 @@ position = Vector2(17, 0)
 color = Color(0.30588236, 0.34509805, 0.40392157, 1)
 polygon = PackedVector2Array(-14, 54, -11, 48, -6, 48, -3, 54)
 
-[node name="RightExhaust" type="Polygon2D" parent="Body/RightEngine"]
+[node name="RightExhaustLow" type="Polygon2D" parent="Body/RightEngine"]
+position = Vector2(-2.000001, 32.905)
+scale = Vector2(0.745, 0.5)
 color = Color(0.7411765, 0.41568628, 0.52156866, 1)
 polygon = PackedVector2Array(-13, 66, -12, 72, -11, 71, -10, 78, -9, 77, -8, 82, -7, 77, -6, 78, -6, 72, -5, 74, -4, 66)
 
-[node name="RightExhaustAccent" type="Polygon2D" parent="Body/RightEngine/RightExhaust"]
+[node name="RightExhaustAccent" type="Polygon2D" parent="Body/RightEngine/RightExhaustLow"]
 color = Color(0.8666631, 0.60651547, 0.6834131, 1)
 polygon = PackedVector2Array(-11, 66, -11, 69, -10, 68, -9, 72, -8, 74, -7, 72, -7, 70, -6, 71, -5, 66)
+
+[node name="RightExhaust" type="Polygon2D" parent="Body/RightEngine"]
+color = Color(0.7411765, 0.41568628, 0.52156866, 1)
+polygon = PackedVector2Array(-13, 66, -11.999997, 77.3, -10.999997, 75.3, -9.999997, 83.3, -8.999997, 80.3, -7.999997, 85.3, -7, 77, -6, 78, -5.999997, 74.3, -5, 74, -4, 66)
+
+[node name="RightExhaustAccent" type="Polygon2D" parent="Body/RightEngine/RightExhaust"]
+color = Color(0.8666631, 0.60651547, 0.6834131, 1)
+polygon = PackedVector2Array(-11, 66, -10.999998, 73.3, -9.999998, 71.3, -8.999997, 75.3, -7.999997, 77.3, -7, 72, -5.999997, 73.3, -6, 71, -5, 66)
 
 [node name="RightEngineNozzle" type="Polygon2D" parent="Body/RightEngine"]
 color = Color(0.3764706, 0.42352942, 0.49019608, 1)
@@ -123,6 +157,33 @@ position = Vector2(310, 0)
 
 [node name="DashCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="DashEffect" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="DashEffect"]
+position = Vector2(-2, -1)
+color = Color(0.7411765, 0.41568628, 0.52156866, 1)
+polygon = PackedVector2Array(-72, -10, -231, -12, -237, -8, -231, -4, -72, -6, -70, -8)
+
+[node name="Polygon2D3" type="Polygon2D" parent="DashEffect"]
+color = Color(0.9284817, 0.7755374, 0.8182348, 1)
+polygon = PackedVector2Array(-76, -10, -229, -12, -234, -9, -229, -6, -76, -8, -74, -9)
+
+[node name="Polygon2D2" type="Polygon2D" parent="DashEffect"]
+position = Vector2(-2, 17)
+color = Color(0.7411765, 0.41568628, 0.52156866, 1)
+polygon = PackedVector2Array(-72, -10, -231, -12, -237, -8, -231, -4, -72, -6, -70, -8)
+
+[node name="Polygon2D4" type="Polygon2D" parent="DashEffect"]
+position = Vector2(0, 18)
+color = Color(0.9284817, 0.7755374, 0.8182348, 1)
+polygon = PackedVector2Array(-76, -10, -229, -12, -234, -9, -229, -6, -76, -8, -74, -9)
+
+[node name="DashEffectAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DashEffect")
+libraries = {
+&"": SubResource("AnimationLibrary_gmlin")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

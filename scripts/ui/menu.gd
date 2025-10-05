@@ -30,7 +30,6 @@ func _setup_hover_animations(buttons: Array[Button]) -> void:
 		button.mouse_entered.connect(_on_button_hover.bind(button))
 		button.mouse_exited.connect(_on_button_unhover.bind(button))
 
-
 func _on_button_hover(button: Button):
 	if button_original_positions.has(button):
 		var tween = create_tween()
@@ -39,7 +38,6 @@ func _on_button_hover(button: Button):
 		tween.tween_property(button, "position:x", 
 			button_original_positions[button] + ButtonStyler.HOVER_OFFSET, 
 			ButtonStyler.HOVER_DURATION)
-
 
 func _on_button_unhover(button: Button):
 	if button_original_positions.has(button):
