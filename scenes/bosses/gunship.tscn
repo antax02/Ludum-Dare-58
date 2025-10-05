@@ -1,0 +1,256 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtmq1kbcfmtda"]
+
+[ext_resource type="Script" uid="uid://dxde0nti8nfsf" path="res://scripts/gunship.gd" id="1_frslv"]
+[ext_resource type="PackedScene" uid="uid://biww4qk4w2o6u" path="res://scenes/bosses/gunship_centry.tscn" id="1_wf82b"]
+
+[node name="Gunship" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_frslv")
+
+[node name="BodyDep" type="Node2D" parent="."]
+visible = false
+position = Vector2(50000, 0)
+scale = Vector2(1.5, 1.5)
+
+[node name="Left" type="Node2D" parent="BodyDep"]
+
+[node name="Polygon2D2" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-92, 17.000004)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-106, -50, -106, -21, -147, -21, -147, -50)
+
+[node name="Polygon2D4" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-129, 14.000004)
+scale = Vector2(1.0357143, 0.8235294)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-106.2069, -57.07143, -106.2069, -21.857143, -118.75863, -25.5, -118.75863, -54.642857)
+
+[node name="Polygon2D10" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-89, -24.137932)
+scale = Vector2(1, 0.51724136)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-106, -50, -106, -21, -147, -21, -147, -50)
+
+[node name="Polygon2D11" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-126, -17)
+scale = Vector2(1.0357143, 0.8235294)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-106.2069, -40.071426, -106.2069, -21.857143, -115.86207, -25.5, -115.86207, -36.42857)
+
+[node name="Polygon2D3" type="Polygon2D" parent="BodyDep/Left"]
+
+[node name="Polygon2D8" type="Polygon2D" parent="BodyDep/Left"]
+color = Color(0.3255332, 0.5019653, 0.44711387, 1)
+polygon = PackedVector2Array(144, 0, 132, -14, 95, -28, 15, -64, -27, -73, -161, -74, -219, -60, -229, -30, -227, 0)
+
+[node name="Polygon2D5" type="Polygon2D" parent="BodyDep/Left"]
+
+[node name="Polygon2D6" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-61, 0)
+color = Color(0.30588236, 0.34901962, 0.40392157, 1)
+polygon = PackedVector2Array(-118, 0, -100, -22, -5, -32, 34, -17, 56, 0, -22.50425, 0)
+
+[node name="Polygon2D7" type="Polygon2D" parent="BodyDep/Left"]
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(139, -14, 97, -31, 22, -63, 15, -64, 95, -28, 132, -14, 144, 0, 146, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-49.999996, -0.95238113)
+scale = Vector2(1, 0.95238096)
+color = Color(0.3254902, 0.5019608, 0.44705883, 1)
+polygon = PackedVector2Array(-111.99999, 1.0000001, -107.99999, -16.849998, -67, -20, -17, -22.099998, 16.999996, 1.0000001)
+
+[node name="Turrets" type="Node2D" parent="BodyDep/Left"]
+
+[node name="Turret" parent="BodyDep/Left/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-128, -50)
+
+[node name="Turret5" parent="BodyDep/Left/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-197, -40)
+
+[node name="Turret2" parent="BodyDep/Left/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-79, -54)
+
+[node name="Turret3" parent="BodyDep/Left/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-8, -41)
+
+[node name="Turret4" parent="BodyDep/Left/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(36, -29)
+
+[node name="Polygon2D9" type="Polygon2D" parent="BodyDep/Left"]
+position = Vector2(-27, 0)
+color = Color(0.2627451, 0.41568628, 0.36862746, 1)
+polygon = PackedVector2Array(-100, 0, -96, -9, -53, -9, -47, 0)
+
+[node name="Right" type="Node2D" parent="BodyDep"]
+scale = Vector2(1, -1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-92, 21.000004)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-106, -50, -106, -21, -147, -21, -147, -50)
+
+[node name="Polygon2D4" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-129, 18.000004)
+scale = Vector2(1.0357143, 0.8235294)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-106.2069, -57.07143, -106.2069, -21.857143, -118.75863, -25.5, -118.75863, -54.642857)
+
+[node name="Polygon2D10" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-89, -20.137932)
+scale = Vector2(1, 0.51724136)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-106, -50, -106, -21, -147, -21, -147, -50)
+
+[node name="Polygon2D12" type="Polygon2D" parent="BodyDep/Right"]
+color = Color(0.3254902, 0.5019608, 0.44705883, 1)
+polygon = PackedVector2Array(144, 0, 131.40599, -13.842117, 95, -28, 15, -64, -27, -73, -161, -74, -219, -60, -229, -30, -227, 0)
+
+[node name="Polygon2D11" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-126, -13)
+scale = Vector2(1.0357143, 0.8235294)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-106.2069, -40.071426, -106.2069, -21.857143, -115.86207, -25.5, -115.86207, -36.42857)
+
+[node name="Polygon2D3" type="Polygon2D" parent="BodyDep/Right"]
+
+[node name="Polygon2D5" type="Polygon2D" parent="BodyDep/Right"]
+
+[node name="Polygon2D6" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-61, 0)
+color = Color(0.30588236, 0.34901962, 0.40392157, 1)
+polygon = PackedVector2Array(-118, 0, -100, -27, -5, -32, 34, -17, 56, 0)
+
+[node name="Polygon2D7" type="Polygon2D" parent="BodyDep/Right"]
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(139, -14, 97, -31, 22, -63, 15, -64, 95, -28, 132, -13, 144, 0, 146, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-50, 0)
+color = Color(0.3254902, 0.5019608, 0.44705883, 1)
+polygon = PackedVector2Array(-112, 0, -108, -16, -67, -20, -18, -24, 18, 0)
+
+[node name="Turrets" type="Node2D" parent="BodyDep/Right"]
+
+[node name="Turret" parent="BodyDep/Right/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-128, -50)
+
+[node name="Turret5" parent="BodyDep/Right/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-197, -40)
+
+[node name="Turret2" parent="BodyDep/Right/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-79, -54)
+
+[node name="Turret3" parent="BodyDep/Right/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-8, -41)
+
+[node name="Turret4" parent="BodyDep/Right/Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(36, -29)
+
+[node name="Polygon2D9" type="Polygon2D" parent="BodyDep/Right"]
+position = Vector2(-27, 0)
+color = Color(0.2627451, 0.41568628, 0.36862746, 1)
+polygon = PackedVector2Array(-100, 0, -96, -9, -53, -9, -47, 0)
+
+[node name="Body" type="Node2D" parent="."]
+scale = Vector2(1.8, 1.8)
+
+[node name="Polygon2D" type="Polygon2D" parent="Body"]
+position = Vector2(87, -5)
+color = Color(0.5270657, 0.23468089, 0.28146902, 1)
+polygon = PackedVector2Array(246, 5, 226, -17, -27, -17, -58, -77, -121, -77, -131.996, -17, -230, -17, -237, 5, -137, 5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Body"]
+position = Vector2(0, -5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(34, -67, 281, -67, 310, -17, 60, -17)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Body"]
+position = Vector2(0, -5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-36, -67, -125, -67, -138, -17, -45, -17)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Body"]
+position = Vector2(0, -5)
+color = Color(0.654902, 0.30980393, 0.3647059, 1)
+polygon = PackedVector2Array(26, -67, -28, -67, -37, -17, 52, -17)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Body"]
+position = Vector2(0, -5)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(313, -17, 60, -17, 60, -14, 315, -15)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Body"]
+position = Vector2(0, -5)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-143, -17, -45, -17, -45, -14, -144, -14)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Body"]
+position = Vector2(87, 5)
+scale = Vector2(1, -1)
+color = Color(0.5270657, 0.23468089, 0.28146902, 1)
+polygon = PackedVector2Array(246, 5, 226, -17, -27, -17, -58, -77, -121, -77, -131.996, -17, -230, -17, -237, 5, -137, 5)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Body"]
+position = Vector2(0, 5)
+scale = Vector2(1, -1)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(34, -67, 281, -67, 310, -17, 60, -17)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Body"]
+position = Vector2(0, 5)
+scale = Vector2(1, -1)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-36, -67, -125, -67, -138, -17, -45, -17)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Body"]
+position = Vector2(0, 5)
+scale = Vector2(1, -1)
+color = Color(0.654902, 0.30980393, 0.3647059, 1)
+polygon = PackedVector2Array(26, -67, -28, -67, -37, -17, 52, -17)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Body"]
+position = Vector2(0, 5)
+scale = Vector2(1, -1)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(313, -17, 60, -17, 60, -14, 315, -15)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Body"]
+position = Vector2(0, 5)
+scale = Vector2(1, -1)
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-143, -17, -45, -17, -45, -14, -144, -14)
+
+[node name="Turrets" type="Node2D" parent="."]
+scale = Vector2(1.8, 1.8)
+
+[node name="LeftBack1" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-104, -42)
+
+[node name="LeftBack2" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-66, -42)
+
+[node name="LeftFront1" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(226, -42)
+
+[node name="LeftFront2" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(264, -42)
+
+[node name="RightBack1" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-104, 42)
+rotation = -3.1415925
+
+[node name="RightBack2" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(-66, 42)
+rotation = -3.1415925
+
+[node name="RightFront1" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(226, 42)
+rotation = -3.1415925
+
+[node name="RightFront2" parent="Turrets" instance=ExtResource("1_wf82b")]
+position = Vector2(264, 42)
+rotation = -3.1415925
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.8, 1.8)
+polygon = PackedVector2Array(-150, 1, -125, 72, -34, 83, 30, 83, 281, 72, 333, 0, 281, -72, 29, -82, -34, -82, -125, -73)

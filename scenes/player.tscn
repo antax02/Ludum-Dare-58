@@ -19,7 +19,7 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
 [node name="Body" type="Node2D" parent="."]
-position = Vector2(38.300003, 0)
+position = Vector2(15.300003, 0)
 rotation = 1.5707964
 
 [node name="Nose" type="Polygon2D" parent="Body"]
@@ -108,15 +108,14 @@ color = Color(0.7372549, 0.5372549, 0.33333334, 1)
 polygon = PackedVector2Array(38, 22, 38, 61, 40, 61, 40, 22)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(38.300003, 0)
+position = Vector2(15.300003, 0)
 polygon = PackedVector2Array(59, 0, -13, -42, -64, -42, -82, -8, -82, 9, -64, 42, -13, 42)
 
 [node name="ShootLeft" type="Marker2D" parent="."]
-position = Vector2(49.300003, -40)
+position = Vector2(26.300003, -40)
 
 [node name="ShootRight" type="Marker2D" parent="."]
-position = Vector2(49.300003, 39)
+position = Vector2(26.300003, 39)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(310, 0)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://biww4qk4w2o6u"]
+
+[ext_resource type="Script" uid="uid://chwlqoo3xv58w" path="res://scripts/gunship_centry.gd" id="1_uvksq"]
+
+[node name="GunshipCentry" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_uvksq")
+
+[node name="Base" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="Base"]
+color = Color(0.5254902, 0.23529412, 0.28235295, 1)
+polygon = PackedVector2Array(0, -12, 8, -8, 12, 0, 8, 8, 0, 12, -8, 8, -12, 0, -8, -8)
+
+[node name="Gun" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="Gun"]
+color = Color(0.654902, 0.30980393, 0.3647059, 1)
+polygon = PackedVector2Array(-6, 0, -5, -6, 0, -8, 5, -6, 6, 0, 5, 5, 0, 8, -5, 5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Gun"]
+color = Color(0.3764706, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-2, -7, -1, -23, 1, -23, 2, -7, 0, -8)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -43)
+rotation = -1.5707964

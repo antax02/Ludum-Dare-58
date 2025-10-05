@@ -9,12 +9,12 @@ height = 35.999905
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_y25gk")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.89, 0.53400004, 0.6704666, 0.37254903)
+[node name="Accent" type="Polygon2D" parent="."]
+color = Color(0.8901961, 0.53333336, 0.67058825, 0.37254903)
 polygon = PackedVector2Array(13, 0, 10, -3, 0, -4, -27, 0, 0, 4, 10, 3)
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-color = Color(0.8885316, 0.8071477, 0.86830044, 1)
+[node name="Body" type="Polygon2D" parent="."]
+color = Color(0.9420261, 0.8978513, 0.9290652, 1)
 polygon = PackedVector2Array(9, 0, 5, -2, 0, -2, -14, 0, 0, 2, 5, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -5,3 +5,6 @@
 
 [node name="Enemy" instance=ExtResource("1_vtvp0")]
 script = ExtResource("2_ek7bv")
+
+[node name="BaseEnemyBody" parent="." index="2"]
+visible = false
