@@ -5,7 +5,7 @@ var health: int = 100
 var rotation_speed: int = 10
 var speed: int = 200
 var dash_target_entities: int = 0
-var dash_cooldown: float = 0
+var dash_cooldown: float = 2
 var dead = false
 var rotation_freeze_time: float = 10.0
 
