@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://rikstu1tdtcs"]
+
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="1_r1vs7"]
+
+[node name="Complete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_r1vs7")
+theme_override_font_sizes/font_size = 48
+text = "CONGRATULATION🎉"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 205
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_r1vs7")
+theme_override_font_sizes/font_size = 24
+text = "You did it! You collected all 4 parts of your totally disassembled robot buddy, Göran. 
+
+He is now 97% less broken and 100% your best friend forever and ever (probably). 
+
+No longer must you wander the lonely wastelands of snackless despair! Together you can:
+
+Eat invisible sandwiches
+
+Dance the funky chicken in zero gravity
+
+Stare meaningfully into the sun for hours
+
+Or just sit quietly and beep at each other like champions
+
+Your friendship is now officially canon, legally binding, and maybe slightly radioactive. 
+
+You will live happily ever after, possibly inventing new dance moves, until the end of time… or 
+until someone trips over a power cord. Honestly, who can say. But for now… PARTY LIKE A ROBOT."
+horizontal_alignment = 1
