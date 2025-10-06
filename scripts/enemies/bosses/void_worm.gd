@@ -70,4 +70,5 @@ func spit(angle: float, damage: float, speed: float) -> void:
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
+		SignalBus.spawn_boss_drop.emit()
 		queue_free()

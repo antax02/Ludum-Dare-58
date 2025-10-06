@@ -60,4 +60,5 @@ func set_battery_enable(battery: Array[Node2D], state: bool) -> void:
 func take_damage(dmg):
 	health -= dmg
 	if health <= 0:
+		SignalBus.spawn_boss_drop.emit()
 		queue_free()
