@@ -9,4 +9,105 @@
 script = ExtResource("2_xkf83")
 laser = ExtResource("3_5jdr2")
 
-[node name="LaserCanon" parent="." index="3" instance=ExtResource("3_xkf83")]
+[node name="BaseEnemyBody" parent="." index="2"]
+visible = false
+position = Vector2(-76, 1)
+
+[node name="Body" type="Node2D" parent="." index="3"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Body" index="0"]
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(-20, -8, 20, -8, 22, -5, 22, 5, 20, 8, -20, 8)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Body" index="1"]
+color = Color(0.28627452, 0.6392157, 0.53333336, 1)
+polygon = PackedVector2Array(-15, -8, -16, -11, 12, -11, 14, -8)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Body" index="2"]
+position = Vector2(2, 6)
+color = Color(0.4166792, 0.82270366, 0.6953844, 1)
+polygon = PackedVector2Array(0, -17, -4, -31, -16, -31, -18, -17)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Body" index="3"]
+scale = Vector2(1, -1)
+color = Color(0.28627452, 0.6392157, 0.53333336, 1)
+polygon = PackedVector2Array(-15, -8, -16, -11, 12, -11, 14, -8)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Body" index="4"]
+position = Vector2(2, -6)
+scale = Vector2(1, -1)
+color = Color(0.4166792, 0.82270366, 0.6953844, 1)
+polygon = PackedVector2Array(0, -17, -4, -31, -16, -31, -18, -17)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Body" index="5"]
+position = Vector2(-38.5, 1.0000019)
+scale = Vector2(2.5, 2.5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(11, -5, 10, -6, 9, -6, 9, -4, 10, -4)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Body" index="6"]
+position = Vector2(-38.5, 1.0000019)
+scale = Vector2(2.5, 2.5)
+color = Color(0.38039216, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(9, -6, 7, -6, 7, -4, 9, -4)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Body" index="7"]
+position = Vector2(-6, 1.0000019)
+scale = Vector2(2.5, 2.5)
+color = Color(0.80784315, 0.7607843, 0.9254902, 1)
+polygon = PackedVector2Array(-6, -6, -10, -5, -6, -4)
+
+[node name="Polygon2D14" type="Polygon2D" parent="Body" index="8"]
+position = Vector2(-6, 1.0000019)
+scale = Vector2(2.5, 2.5)
+color = Color(0.70980394, 0.63529414, 0.8784314, 1)
+polygon = PackedVector2Array(-6, -6, -8, -5, -6, -4)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Body" index="9"]
+position = Vector2(-38.5, 23.999998)
+scale = Vector2(2.5, 2.5)
+color = Color(0.30588236, 0.34509805, 0.40392157, 1)
+polygon = PackedVector2Array(11, -5, 10, -6, 9, -6, 9, -4, 10, -4)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Body" index="10"]
+position = Vector2(-38.5, 23.999998)
+scale = Vector2(2.5, 2.5)
+color = Color(0.38039216, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(9, -6, 7, -6, 7, -4, 9, -4)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Body" index="11"]
+position = Vector2(-6, 23.999998)
+scale = Vector2(2.5, 2.5)
+color = Color(0.8097918, 0.7627275, 0.92649937, 1)
+polygon = PackedVector2Array(-6, -6, -10, -5, -6, -4)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Body" index="12"]
+position = Vector2(-6, 23.999998)
+scale = Vector2(2.5, 2.5)
+color = Color(0.71152353, 0.6384883, 0.8812159, 1)
+polygon = PackedVector2Array(-6, -6, -8, -5, -6, -4)
+
+[node name="LaserCanon" parent="." index="4" instance=ExtResource("3_xkf83")]
+
+[node name="Sprite2D" parent="LaserCanon" index="0"]
+visible = false
+
+[node name="Polygon2D2" type="Polygon2D" parent="LaserCanon" index="2"]
+position = Vector2(2, 0)
+color = Color(0.28749147, 0.6401923, 0.5340468, 1)
+polygon = PackedVector2Array(26, -2, 38, 0, 26, 2)
+
+[node name="Polygon2D" type="Polygon2D" parent="LaserCanon" index="3"]
+color = Color(0.38039216, 0.42352942, 0.49019608, 1)
+polygon = PackedVector2Array(-8, -6, 27, -6, 29, 0, 27, 6, -8, 6, -10, 3, -10, -3)
+
+[node name="Polygon2D3" type="Polygon2D" parent="LaserCanon" index="4"]
+color = Color(0.28627452, 0.6392157, 0.53333336, 1)
+polygon = PackedVector2Array(-6, -5, 24, -5, 25, -4, -7, -4)
+
+[node name="Polygon2D4" type="Polygon2D" parent="LaserCanon" index="5"]
+position = Vector2(0, 9)
+color = Color(0.28627452, 0.6392157, 0.53333336, 1)
+polygon = PackedVector2Array(25, -5, 24, -4, -6, -4, -7, -5)
+
+[editable path="LaserCanon"]

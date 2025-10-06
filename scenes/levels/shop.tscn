@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://kck2gexb5vkx"]
+[gd_scene load_steps=15 format=3 uid="uid://kck2gexb5vkx"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_jwwn2"]
 [ext_resource type="PackedScene" uid="uid://bqpdull5vt8ke" path="res://scenes/levels/next_level/shop_exit_zone.tscn" id="2_f1n2c"]
+[ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="3_l0wp4"]
+[ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="4_5t1oh"]
+[ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/environment/star_01.tscn" id="5_cedew"]
+[ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/environment/planet_04.tscn" id="6_0qrhc"]
+[ext_resource type="PackedScene" uid="uid://c8788b5h8tpho" path="res://scenes/environment/planet_05.tscn" id="7_hsb75"]
+[ext_resource type="PackedScene" uid="uid://cq61c6hjwqy1" path="res://scenes/environment/planet_03.tscn" id="8_d6okf"]
+[ext_resource type="PackedScene" uid="uid://80p3mosi1y6q" path="res://scenes/environment/planet_02.tscn" id="9_4u68b"]
+[ext_resource type="PackedScene" uid="uid://0txg2pjmopdc" path="res://scenes/environment/special_01.tscn" id="10_y04i0"]
+[ext_resource type="PackedScene" uid="uid://b4dyt7kb4t4g2" path="res://scenes/environment/planet_01.tscn" id="11_10f0g"]
+[ext_resource type="FontFile" uid="uid://0ajvaa5ea8n6" path="res://assets/fonts/VT323-Regular.ttf" id="12_vh7m0"]
+[ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="13_nifbt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
+shader = ExtResource("13_nifbt")
+shader_parameter/scanline_count = 200.0000095
+shader_parameter/scanline_strength = 0.400000019
+shader_parameter/scanline_speed = 0.1
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.350000016625
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [node name="Shop" type="Node2D"]
 
@@ -10,3 +32,74 @@ position = Vector2(3, 4)
 
 [node name="ShopExitZone" parent="." instance=ExtResource("2_f1n2c")]
 position = Vector2(-2, 196)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_l0wp4")
+target = NodePath("../Player")
+
+[node name="Enviorment" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("4_5t1oh")
+stars = Array[PackedScene]([ExtResource("5_cedew")])
+far_objects = Array[PackedScene]([ExtResource("6_0qrhc"), ExtResource("7_hsb75")])
+near_objects = Array[PackedScene]([ExtResource("8_d6okf"), ExtResource("9_4u68b"), ExtResource("8_d6okf")])
+far_rare_objects = Array[PackedScene]([ExtResource("10_y04i0")])
+near_rare_objects = Array[PackedScene]([ExtResource("11_10f0g")])
+far_objects_count = 40
+near_objects_count = 25
+
+[node name="OutOfBoundsEffect" type="CanvasLayer" parent="Enviorment"]
+visible = false
+
+[node name="Label" type="Label" parent="Enviorment/OutOfBoundsEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = -17.0
+offset_right = 228.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.29803923, 0.4117647, 1)
+theme_override_fonts/font = ExtResource("12_vh7m0")
+theme_override_font_sizes/font_size = 32
+text = "RETURN TO AUTHORIZED FLIGHT ZONE!"
+horizontal_alignment = 1
+
+[node name="EffectRect" type="ColorRect" parent="Enviorment/OutOfBoundsEffect"]
+material = SubResource("ShaderMaterial_k0juu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Background" type="Node2D" parent="Enviorment"]
+
+[node name="Stars" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="FarObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="NearRareObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="FarRareObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="NearObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="PlayableArea" type="Area2D" parent="Enviorment"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviorment/PlayableArea"]
+polygon = PackedVector2Array(-470, -286, -79, -586, 533, -494, 749, 22, 649, 528, -18, 619, -470, 332)
+
+[connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
+[connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]

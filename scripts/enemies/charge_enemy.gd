@@ -11,7 +11,7 @@ func setup():
 	max_speed = 150
 	acceleration = 600
 	rotation_speed = 7
-	distance = 400
+	distance = 500
 	bullet_cooldown = 3
 
 func laser_tracing(delta):
