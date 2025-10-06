@@ -38,3 +38,4 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 25
 text = "coin count"
+horizontal_alignment = 1
