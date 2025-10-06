@@ -206,7 +206,6 @@ volume_db = -10.097
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_75vfm")
-volume_db = -15.0
 autoplay = true
 parameters/looping = true
 

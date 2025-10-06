@@ -13,6 +13,8 @@ config_version=5
 config/name="LudumDare58"
 run/main_scene="uid://bsjqltcf88fn2"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/image="uid://but3detgwhiqj"
 config/icon="res://icon.svg"
 
 [autoload]
