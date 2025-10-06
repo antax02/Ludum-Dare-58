@@ -36,5 +36,4 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 25
 text = "coin count"
-
-[connection signal="counter_update" from="." to="." method="_on_counter_update"]
+horizontal_alignment = 1
