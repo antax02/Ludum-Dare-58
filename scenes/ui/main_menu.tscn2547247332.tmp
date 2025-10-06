@@ -103,7 +103,7 @@ layout_mode = 2
 texture = ExtResource("3_1g8jr")
 flip_h = true
 
-[node name="ClickAudio" type="AudioStreamPlayer" parent="menu/marign"]
+[node name="ClickAudio" type="AudioStreamPlayer" parent="menu"]
 stream = ExtResource("4_m1kxf")
 volume_db = -10.0
 

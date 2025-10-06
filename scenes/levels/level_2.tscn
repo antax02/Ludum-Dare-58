@@ -279,7 +279,6 @@ position = Vector2(5955, -1657)
 script = ExtResource("26_1a10c")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossArea"]
-visible = false
 polygon = PackedVector2Array(-1997, -1372, -660, -1648, 672, -1551, 2078, -435, 1922, 1467, 512, 2152, -1662, 1987, -2498, 153)
 
 [node name="Gunship" parent="." instance=ExtResource("22_wikm6")]
