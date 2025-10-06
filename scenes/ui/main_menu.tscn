@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsjqltcf88fn2"]
+[gd_scene load_steps=5 format=3 uid="uid://bsjqltcf88fn2"]
 
 [ext_resource type="Script" uid="uid://c8ikinlbxcjkg" path="res://scripts/ui/menu.gd" id="1_fe2o3"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://but3detgwhiqj" path="res://assets/planets/planet_01.png" id="3_1g8jr"]
+[ext_resource type="AudioStream" uid="uid://dedh5rv24tjk8" path="res://assets/audio/click.wav" id="4_m1kxf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -101,6 +102,10 @@ modulate = Color(0.6085353, 0.89303005, 0.4600696, 1)
 layout_mode = 2
 texture = ExtResource("3_1g8jr")
 flip_h = true
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m1kxf")
+volume_db = -10.0
 
 [connection signal="pressed" from="menu/marign/layout/buttons/start" to="menu" method="_on_start_pressed"]
 [connection signal="pressed" from="menu/marign/layout/buttons/credits" to="menu" method="_on_button_2_pressed"]
