@@ -1,9 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://bk8w0r1ytyega"]
+[gd_scene load_steps=25 format=3 uid="uid://bk8w0r1ytyega"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_qsp8v"]
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_lkn2k"]
-[ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_nt80m"]
-[ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="3_brxtv"]
 [ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/environment/star_01.tscn" id="5_r88tb"]
 [ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/environment/planet_04.tscn" id="5_sbygb"]
 [ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/environment/star_02.tscn" id="6_1yj8c"]
@@ -38,6 +36,7 @@ shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
 [node name="Level2" type="Node2D"]
+position = Vector2(5749, -2869)
 
 [node name="Player" parent="." instance=ExtResource("1_qsp8v")]
 position = Vector2(3, 18)
@@ -209,6 +208,11 @@ enabled = true
 
 [node name="Wallet" parent="." instance=ExtResource("9_nt80m")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_gw1l3")]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("12_brxtv")
 target = NodePath("../Player")
@@ -226,12 +230,6 @@ position = Vector2(6304.798, -1469.5996)
 rotation = -2.9286625
 
 [node name="BossUi" parent="." instance=ExtResource("23_1c1qw")]
-boss_name = "Gunship"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_gw1l3")]
-visible = false
 
 [node name="BossArea" type="Area2D" parent="."]
 script = ExtResource("23_5niy6")
@@ -239,66 +237,6 @@ script = ExtResource("23_5niy6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossArea"]
 position = Vector2(6158, -1494)
 polygon = PackedVector2Array(-2425, -1210, -279, -2441, 2061, -1037, 1965, 755, 1607, 2488, -1798, 1605)
-
-[node name="Enemy" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(5802, 136)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(6555, -76)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(6679, -494)
-
-[node name="Enemy4" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(8389, -1137)
-
-[node name="Enemy5" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(8269, -1992)
-
-[node name="Enemy6" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(7649, -1298)
-
-[node name="Enemy7" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(6992, -1959)
-
-[node name="Enemy8" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(6022, -2842)
-
-[node name="Enemy9" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(5122, -2998)
-
-[node name="Enemy10" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(4570, -2350)
-
-[node name="Enemy11" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(5255, -1725)
-
-[node name="Enemy12" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(5990, -1077)
-
-[node name="Enemy13" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(4616, -1385)
-
-[node name="Enemy14" parent="." instance=ExtResource("2_nt80m")]
-position = Vector2(5457, -494)
-
-[node name="Enemy15" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(5379, -1082)
-
-[node name="Enemy16" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(5871, -2088)
-
-[node name="Enemy17" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(5572, -2575)
-
-[node name="Enemy18" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(6785, -990)
-
-[node name="Enemy19" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(7249, -1592)
-
-[node name="Enemy20" parent="." instance=ExtResource("3_brxtv")]
-position = Vector2(5103, -66)
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]

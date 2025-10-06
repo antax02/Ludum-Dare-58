@@ -18,7 +18,7 @@ var left_back_battery: Array[Node2D] = []
 var right_front_battery: Array[Node2D] = []
 var right_back_battery: Array[Node2D] = []
 
-var max_health = 500
+var max_health = 5000
 var health = max_health
 
 
