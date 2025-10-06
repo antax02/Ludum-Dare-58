@@ -1,13 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://hr1d8w7fnfbl"]
 
-[ext_resource type="Script" uid="uid://dkxnt16714hee" path="res://scripts/ui/boss_ui.gd" id="1_cq6a3"]
+[ext_resource type="Script" path="res://scripts/ui/boss_ui.gd" id="1_cq6a3"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_avklc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cq6a3"]
 bg_color = Color(0.17304611, 0.13240746, 0.20181158, 0.6509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avklc"]
 bg_color = Color(0.69961506, 0.33095717, 0.35840368, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_px78a"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_cq6a3")
