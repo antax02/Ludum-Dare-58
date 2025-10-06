@@ -47,16 +47,14 @@ position = Vector2(676, -198)
 [node name="BossUi" parent="." instance=ExtResource("13_dnkej")]
 boss_name = "Gunship"
 
-[node name="wallet" parent="." instance=ExtResource("13_mm8aj")]
-
 [node name="HealthBar" parent="." instance=ExtResource("14_mm8aj")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
-visible = false
 
 [node name="VoidWorm" parent="." instance=ExtResource("13_mm8aj")]
 position = Vector2(-753, 407)
 
 [node name="Wallet" parent="." instance=ExtResource("15_wtwp4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
+visible = false
