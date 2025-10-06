@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbry1nprs0bwf"]
+[gd_scene load_steps=26 format=3 uid="uid://cbry1nprs0bwf"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_r3huh"]
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_lc5pf"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ch05qjo5kpxj0" path="res://scenes/ui/target_finder.tscn" id="21_05jat"]
 [ext_resource type="Script" uid="uid://coh1aljif6nol" path="res://scripts/enemies/bosses/boss_area.gd" id="22_gk2n7"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="23_fwhj0"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="24_lc5pf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("12_4luak")
@@ -38,7 +39,7 @@ shader_parameter/shake_color_rate = 0.01
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_r3huh")]
-position = Vector2(5373, -3626)
+position = Vector2(6480, -6558)
 
 [node name="Enviorment" type="Node2D" parent="."]
 z_index = -1
@@ -198,11 +199,11 @@ position = Vector2(5370, -3644)
 script = ExtResource("19_iblbt")
 target = NodePath("../Player")
 
-[node name="BossUi" parent="." instance=ExtResource("20_syeym")]
-boss_name = "Void Worm"
-
 [node name="TargetFinder" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_05jat")]
 target = NodePath("../ExitZone")
+
+[node name="BossUi" parent="." instance=ExtResource("20_syeym")]
+boss_name = "Void Worm"
 
 [node name="BossArea" type="Area2D" parent="."]
 position = Vector2(8523, -6691)
@@ -216,6 +217,24 @@ polygon = PackedVector2Array(-436, -1651, 405, -1382, 1389, -1033, 1944, -129, 1
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("23_fwhj0")]
 visible = false
+
+[node name="LevelTransition" type="CanvasLayer" parent="." groups=["level_transition"]]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelTransition/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("24_lc5pf")
+theme_override_font_sizes/font_size = 24
+text = "You found a body part! Göran’s reboot percentage increases by 27% (give or take infinite).
+ Keep scavenging, champion of questionable science!f"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]

@@ -25,10 +25,9 @@ func _physics_process(delta: float) -> void:
 	if !target:
 		target = get_tree().get_first_node_in_group("player")
 	if target && enabled:
-		rotation = lerp_angle(rotation, (target.global_position - global_position).angle() + (PI/2), ease(rotation_speed * delta, 2.6) / 2)
-		if angle_difference(rotation, (target.global_position - global_position).angle() + (PI/2) < 5):
-			if can_shoot:
-				shoot()
+		rotation = lerp_angle(rotation, (target.global_position - global_position).angle() - (PI/2), ease(rotation_speed * delta, 2.6) / 2)
+		if can_shoot:
+			shoot()
 	if !enabled:
 		rotation = lerp_angle(rotation, defalut_rotation, ease(rotation_speed * delta, 2.6) / 2)
 

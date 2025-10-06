@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsjqltcf88fn2"]
+
+[ext_resource type="Script" uid="uid://c8ikinlbxcjkg" path="res://scripts/ui/menu.gd" id="1_fe2o3"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://but3detgwhiqj" path="res://assets/planets/planet_01.png" id="3_1g8jr"]
+[ext_resource type="AudioStream" uid="uid://dedh5rv24tjk8" path="res://assets/audio/click.wav" id="4_m1kxf"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="PanelContainer" parent="."]
+self_modulate = Color(3.3691526e-07, 0.39524272, 0.40246114, 0.5411765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fe2o3")
+
+[node name="marign" type="MarginContainer" parent="menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="layout" type="HBoxContainer" parent="menu/marign"]
+layout_mode = 2
+
+[node name="buttons" type="VBoxContainer" parent="menu/marign/layout"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Game_Name" type="Label" parent="menu/marign/layout/buttons"]
+self_modulate = Color(0.7880323, 0.5890712, 0.39123064, 1)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 150
+text = "Game Name"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/marign/layout/buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 0
+
+[node name="start" type="Button" parent="menu/marign/layout/buttons"]
+self_modulate = Color(0.66240066, 0.8693412, 0.8588538, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 75
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="menu/marign/layout/buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+
+[node name="credits" type="Button" parent="menu/marign/layout/buttons"]
+self_modulate = Color(0.66240066, 0.8693412, 0.8588538, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 75
+text = "Credits
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="menu/marign/layout/buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+
+[node name="quit" type="Button" parent="menu/marign/layout/buttons"]
+self_modulate = Color(0.66240066, 0.8693412, 0.8588538, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 75
+text = "Quit Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="menu/marign/layout"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="img_container" type="CenterContainer" parent="menu/marign/layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="menu/marign/layout/img_container"]
+modulate = Color(0.6085353, 0.89303005, 0.4600696, 1)
+layout_mode = 2
+texture = ExtResource("3_1g8jr")
+flip_h = true
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="menu"]
+stream = ExtResource("4_m1kxf")
+volume_db = -10.0
+
+[connection signal="pressed" from="menu/marign/layout/buttons/start" to="menu" method="_on_start_pressed"]
+[connection signal="pressed" from="menu/marign/layout/buttons/credits" to="menu" method="_on_button_2_pressed"]
+[connection signal="pressed" from="menu/marign/layout/buttons/quit" to="menu" method="_on_quit_game_pressed"]

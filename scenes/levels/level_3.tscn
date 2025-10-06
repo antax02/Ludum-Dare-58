@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cbry1nprs0bwf"]
+[gd_scene load_steps=25 format=3 uid="uid://cbry1nprs0bwf"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_pimnq"]
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_5f5xw"]
@@ -21,10 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="15_o3ttr"]
 [ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="16_kdsi4"]
 [ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit_zone.tscn" id="17_6c6bd"]
-[ext_resource type="PackedScene" uid="uid://cxhsht6ng72y8" path="res://scenes/enemies/bosses/void_worm.tscn" id="20_1nwmf"]
-[ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="20_kdsi4"]
 [ext_resource type="PackedScene" uid="uid://ch05qjo5kpxj0" path="res://scenes/ui/target_finder.tscn" id="21_5f5xw"]
-[ext_resource type="Script" uid="uid://coh1aljif6nol" path="res://scripts/enemies/bosses/boss_area.gd" id="22_kva3v"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="24_kva3v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
@@ -394,7 +391,9 @@ scale = Vector2(1.055, 1.055)
 position = Vector2(-7950, -10906)
 rotation = -3.4156094
 scale = Vector2(0.325, 0.325)
+
 [node name="LevelTransition" type="CanvasLayer" parent="." groups=["level_transition"]]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="LevelTransition"]
 anchors_preset = 15
