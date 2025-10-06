@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var bullet: PackedScene
-var health: int = 100
+var health: int = 200
 var rotation_speed: int = 10
 var speed: int = 200
 var dash_target_entities: int = 0

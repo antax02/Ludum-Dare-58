@@ -31,7 +31,7 @@ shader_parameter/shake_color_rate = 0.01
 position = Vector2(3, 4)
 
 [node name="ShopExitZone" parent="." instance=ExtResource("2_f1n2c")]
-position = Vector2(-2, 196)
+position = Vector2(10, 6)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_l0wp4")

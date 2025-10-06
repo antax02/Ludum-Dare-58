@@ -18,9 +18,8 @@ var left_back_battery: Array[Node2D] = []
 var right_front_battery: Array[Node2D] = []
 var right_back_battery: Array[Node2D] = []
 
-var max_health = 500
+var max_health = 5000
 var health = max_health
-
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -31,26 +30,37 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("player")
-	set_battery_enable(left_front_battery, false)
-	set_battery_enable(left_back_battery, false)
-	set_battery_enable(right_front_battery, false)
-	set_battery_enable(right_back_battery, false)
-	gunship_torpedo_launcher.enabled = false
-	gunship_torpedo_launcher_2.enabled = false
+	
+	# Initialize all to false
+	var left_front_enabled = false
+	var left_back_enabled = false
+	var right_front_enabled = false
+	var right_back_enabled = false
+	var launcher_1_enabled = false
+	var launcher_2_enabled = false
+	
 	if player:
 		var angle_to_player = (player.global_position - global_position).angle()
 		if angle_to_player >= 0:
 			if angle_to_player >= PI/2:
-				set_battery_enable(right_back_battery, true)
+				left_front_enabled = true
 			else:
-				set_battery_enable(right_front_battery, true)
-			gunship_torpedo_launcher_2.enabled = true
-		else:
+				left_back_enabled = true
+			launcher_1_enabled = true
+		else: 
 			if angle_to_player < -PI/2:
-				set_battery_enable(left_back_battery, true)
+				right_front_enabled = true
 			else:
-				set_battery_enable(left_front_battery, true)
-			gunship_torpedo_launcher.enabled = true
+				right_back_enabled = true
+			launcher_2_enabled = true
+	
+	# Now set them all at once
+	set_battery_enable(left_front_battery, left_front_enabled)
+	set_battery_enable(left_back_battery, left_back_enabled)
+	set_battery_enable(right_front_battery, right_front_enabled)
+	set_battery_enable(right_back_battery, right_back_enabled)
+	gunship_torpedo_launcher.enabled = launcher_1_enabled
+	gunship_torpedo_launcher_2.enabled = launcher_2_enabled
 		
 func set_battery_enable(battery: Array[Node2D], state: bool) -> void:
 	for turret in battery:

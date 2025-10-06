@@ -36,6 +36,7 @@ death=""
 exit=""
 boss=""
 bullet=""
+level_transition=""
 
 [input]
 

@@ -5,14 +5,16 @@ extends Path2D
 @onready var attack_audio: AudioStreamPlayer2D = $AttackAudio
 
 var phase: int = 1
-var health: int = 6000
-var max_health: int = 6000
+var health: int = 5000
+var max_health: int = 5000
 
 var dash_timer: float = 0.0
 var dash_cooldown: float = 4.0
 var dash_length: float = 2.5
 var dash_speed: float = 700.0
 var normal_speed: float = 100.0
+
+var range: float = 1000
 
 var shoot_timer: float = 0.0
 var shoot_interval: float = 1.5
@@ -28,7 +30,8 @@ func _process(delta: float) -> void:
 			attack_audio.play()
 			for i in range(36):
 				var angle := deg_to_rad(i * 10)
-				spit(angle, 8.0, 300.0)
+				if global_position.distance_to(get_tree().get_first_node_in_group("player").global_position) < range:
+					spit(angle, 8.0, 300.0)
 			await get_tree().create_timer(3.5).timeout
 
 
@@ -55,7 +58,8 @@ func dash() -> void:
 
 func spit_at_player() -> void:
 	var player = get_tree().get_first_node_in_group("player")
-	spit((player.global_position - head.global_position).angle(), 10.0, 400.0)
+	if global_position.distance_to(get_tree().get_first_node_in_group("player").global_position) < range:
+		spit((player.global_position - head.global_position).angle(), 10.0, 400.0)
 
 
 func spit(angle: float, damage: float, speed: float) -> void:
