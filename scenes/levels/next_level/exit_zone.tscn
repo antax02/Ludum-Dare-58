@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://71di2rojldlm" path="res://scripts/environment/exits/exit_zone.gd" id="1_0nj3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38eme"]
-size = Vector2(297, 78)
+size = Vector2(1954, 78)
 
 [node name="ExitZone" type="Area2D" groups=["exit"]]
 script = ExtResource("1_0nj3s")

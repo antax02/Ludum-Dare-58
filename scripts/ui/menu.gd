@@ -1,6 +1,5 @@
 extends PanelContainer
 
-const WORLD = preload("res://scenes/levels/level_1.tscn")
 @onready var play_button = $marign/layout/buttons/start
 @onready var credits_button = $marign/layout/buttons/credits
 @onready var quit_button = $marign/layout/buttons/quit
@@ -49,7 +48,16 @@ func _on_button_unhover(button: Button):
 			ButtonStyler.HOVER_DURATION)
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(WORLD)
+	# Ensure we go to the latest level
+	var latest_level_number = int(Global.current_level)
+	var next_scene_path = "res://scenes/levels/level_" + str(latest_level_number) + ".tscn"
+
+	# Deferred call is safer in case the button is pressed during physics
+	call_deferred("_change_scene", next_scene_path)
+
+
+func _change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)
 
 
 func _on_credits_pressed() -> void:
