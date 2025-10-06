@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp0fvfymjk8d1"]
+[gd_scene load_steps=12 format=3 uid="uid://dp0fvfymjk8d1"]
 
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="1_fmwxt"]
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="2_yjxbp"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://0txg2pjmopdc" path="res://scenes/environment/special_01.tscn" id="7_k4g3l"]
 [ext_resource type="FontFile" uid="uid://0ajvaa5ea8n6" path="res://assets/fonts/VT323-Regular.ttf" id="7_mvhhs"]
 [ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/environment/planet_04.tscn" id="7_p4wd1"]
-[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/environment/asteroid_01.tscn" id="9_p4wd1"]
-[ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="10_yp5bm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("2_yjxbp")
@@ -87,13 +85,6 @@ scroll_scale = Vector2(0.7, 0.7)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayableArea"]
 polygon = PackedVector2Array(-108, -1915, 1959, -1434, 2578, 340, 2041, 1789, 500, 2216, -1142, 1773, -2169, -188, -1509, -1272)
-
-[node name="Asteroid01" parent="." instance=ExtResource("9_p4wd1")]
-position = Vector2(335, 234)
-
-[node name="Asteroid02" parent="." instance=ExtResource("10_yp5bm")]
-position = Vector2(367.00003, -460)
-rotation = -1.7390867
 
 [connection signal="body_entered" from="PlayableArea" to="." method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="PlayableArea" to="." method="_on_playable_area_body_exited"]

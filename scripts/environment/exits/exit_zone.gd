@@ -1,6 +1,6 @@
 extends Area2D
 
-var enabled = false
+@export var enabled = false
 
 func _ready() -> void:
 	SignalBus.spawn_boss_drop.connect(_spawn_boss_drop)

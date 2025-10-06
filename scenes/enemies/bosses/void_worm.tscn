@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxhsht6ng72y8"]
 
-[ext_resource type="Script" uid="uid://b5yjwkxub3dtd" path="res://scripts/enemies/bosses/void_worm.gd" id="1_d3qpr"]
-[ext_resource type="Script" uid="uid://dv82h6dqq8rwf" path="res://scripts/enemies/bosses/head.gd" id="1_s2tuf"]
-[ext_resource type="PackedScene" uid="uid://8rcosa3x6lx3" path="res://scenes/enemies/bosses/void_worm_segment.tscn" id="2_7xd2p"]
+[ext_resource type="Script" path="res://scripts/enemies/bosses/void_worm.gd" id="1_d3qpr"]
+[ext_resource type="Script" path="res://scripts/enemies/bosses/head.gd" id="1_s2tuf"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/bosses/void_worm_segment.tscn" id="2_7xd2p"]
 [ext_resource type="PackedScene" uid="uid://c3jmflt0fijor" path="res://scenes/projectiles/worm_ball.tscn" id="2_a3cus"]
 
 [sub_resource type="Curve2D" id="Curve2D_7xd2p"]

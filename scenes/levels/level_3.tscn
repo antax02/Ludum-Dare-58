@@ -1,53 +1,222 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbry1nprs0bwf"]
+[gd_scene load_steps=25 format=3 uid="uid://cbry1nprs0bwf"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_pimnq"]
-[ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://c5enivskelk3f" path="res://scenes/enemies/charge_enemy.tscn" id="3_n6eey"]
-[ext_resource type="PackedScene" uid="uid://dp0fvfymjk8d1" path="res://scenes/environment/environment.tscn" id="4_qi5uv"]
+[ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_5f5xw"]
 [ext_resource type="PackedScene" uid="uid://bgnv5cfrcvbxm" path="res://scenes/environment/star_01.tscn" id="5_f6egh"]
+[ext_resource type="PackedScene" uid="uid://vkew0f6jy525" path="res://scenes/environment/planet_04.tscn" id="5_o3ttr"]
+[ext_resource type="PackedScene" uid="uid://c8788b5h8tpho" path="res://scenes/environment/planet_05.tscn" id="6_kdsi4"]
 [ext_resource type="PackedScene" uid="uid://dbflqjs1eqg7f" path="res://scenes/environment/star_02.tscn" id="6_t4txi"]
+[ext_resource type="PackedScene" uid="uid://cq61c6hjwqy1" path="res://scenes/environment/planet_03.tscn" id="7_kva3v"]
 [ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="8_2bnyt"]
-[ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="8_josfm"]
+[ext_resource type="PackedScene" uid="uid://80p3mosi1y6q" path="res://scenes/environment/planet_02.tscn" id="8_jql0x"]
+[ext_resource type="PackedScene" uid="uid://0txg2pjmopdc" path="res://scenes/environment/special_01.tscn" id="9_do6pa"]
 [ext_resource type="PackedScene" uid="uid://b1jmqixrhgh6r" path="res://scenes/ui/death.tscn" id="9_lgrx1"]
 [ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="9_n6eey"]
+[ext_resource type="PackedScene" uid="uid://b4dyt7kb4t4g2" path="res://scenes/environment/planet_01.tscn" id="10_n8qcm"]
+[ext_resource type="FontFile" uid="uid://0ajvaa5ea8n6" path="res://assets/fonts/VT323-Regular.ttf" id="11_aey3y"]
 [ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="11_n6eey"]
+[ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="12_k0dme"]
+[ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/environment/asteroid_01.tscn" id="13_o5em7"]
+[ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="14_22mqa"]
+[ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit_zone.tscn" id="17_6c6bd"]
+[ext_resource type="PackedScene" uid="uid://cxhsht6ng72y8" path="res://scenes/enemies/bosses/void_worm.tscn" id="20_1nwmf"]
+[ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="20_kdsi4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="21_5f5xw"]
+[ext_resource type="Script" uid="uid://coh1aljif6nol" path="res://scripts/enemies/bosses/boss_area.gd" id="22_kva3v"]
 
-[sub_resource type="GDScript" id="GDScript_ugcn1"]
-script/source = "extends Node2D
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
+shader = ExtResource("12_k0dme")
+shader_parameter/scanline_count = 200.0000095
+shader_parameter/scanline_strength = 0.400000019
+shader_parameter/scanline_speed = 0.1
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.350000016625
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
-
-func _on_exit_zone_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-"
-
-[node name="Level3" type="Node2D"]
-script = SubResource("GDScript_ugcn1")
+[node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pimnq")]
-position = Vector2(3, 18)
+position = Vector2(5373, -3626)
 
-[node name="Enemy" parent="." instance=ExtResource("2_2bnyt")]
-position = Vector2(431, -14)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_n6eey")]
-position = Vector2(205, -173)
-
-[node name="Enviorment" parent="." instance=ExtResource("4_qi5uv")]
-position = Vector2(330, 112)
+[node name="Enviorment" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_5f5xw")
 stars = Array[PackedScene]([ExtResource("5_f6egh"), ExtResource("6_t4txi")])
+far_objects = Array[PackedScene]([ExtResource("5_o3ttr"), ExtResource("6_kdsi4")])
+near_objects = Array[PackedScene]([ExtResource("7_kva3v"), ExtResource("8_jql0x"), ExtResource("7_kva3v")])
+far_rare_objects = Array[PackedScene]([ExtResource("9_do6pa")])
+near_rare_objects = Array[PackedScene]([ExtResource("10_n8qcm")])
+far_objects_count = 40
+near_objects_count = 25
 
-[node name="Gunship" parent="." instance=ExtResource("8_josfm")]
-position = Vector2(-645, 361)
+[node name="OutOfBoundsEffect" type="CanvasLayer" parent="Enviorment"]
+visible = false
 
-[node name="wallet" parent="." instance=ExtResource("8_2bnyt")]
+[node name="Label" type="Label" parent="Enviorment/OutOfBoundsEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = -17.0
+offset_right = 228.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.29803923, 0.4117647, 1)
+theme_override_fonts/font = ExtResource("11_aey3y")
+theme_override_font_sizes/font_size = 32
+text = "RETURN TO AUTHORIZED FLIGHT ZONE!"
+horizontal_alignment = 1
+
+[node name="EffectRect" type="ColorRect" parent="Enviorment/OutOfBoundsEffect"]
+material = SubResource("ShaderMaterial_k0juu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Background" type="Node2D" parent="Enviorment"]
+
+[node name="Stars" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="FarObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="NearRareObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="FarRareObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="NearObjects" type="Parallax2D" parent="Enviorment/Background"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="PlayableArea" type="Area2D" parent="Enviorment"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviorment/PlayableArea"]
+polygon = PackedVector2Array(5069, -7921, 8273, -8460, 11496, -6371, 7314, -3644, 5148, -2131, 2642, -4653)
+
+[node name="VoidWorm" parent="." instance=ExtResource("20_1nwmf")]
+position = Vector2(8450, -6728)
+scale = Vector2(1.5, 1.5)
+
+[node name="Asteroid02" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(3898, -3064)
+rotation = -2.5621433
+scale = Vector2(3.755, 3.755)
+
+[node name="Asteroid08" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(4795, -7797)
+rotation = 0.975639
+scale = Vector2(12.95, 12.95)
+
+[node name="Asteroid09" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(4797.0005, -4759)
+rotation = 0.83775806
+scale = Vector2(0.735, 0.735)
+
+[node name="Asteroid12" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(3877, -5100)
+scale = Vector2(2.04, 2.04)
+
+[node name="Asteroid14" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(3578, -3872.9995)
+rotation = -0.97563905
+scale = Vector2(2.51, 2.51)
+
+[node name="Asteroid16" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(7475.9995, -6477)
+rotation = -1.3421582
+scale = Vector2(2.07, 2.07)
+
+[node name="Asteroid17" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(3200.9998, -4860)
+rotation = -1.097812
+scale = Vector2(0.695, 0.695)
+
+[node name="Asteroid18" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(7255, -5035)
+rotation = -2.867576
+scale = Vector2(6.745, 6.745)
+
+[node name="Asteroid19" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(6691, -3793.9998)
+scale = Vector2(4.165, 4.165)
+
+[node name="Asteroid21" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(7650.001, -6889)
+rotation = -2.073451
+scale = Vector2(0.8, 0.8)
+
+[node name="Asteroid22" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(7654, -7782.9995)
+rotation = -2.5621433
+scale = Vector2(3.885, 3.885)
+
+[node name="Asteroid25" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(10245, -7090.0005)
+rotation = -0.61086524
+scale = Vector2(5.72, 5.72)
+
+[node name="Asteroid26" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(9020, -5637)
+rotation = -2.5621433
+scale = Vector2(5.665, 5.665)
+
+[node name="Asteroid28" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(5901.9995, -6476)
+rotation = -1.8413223
+scale = Vector2(1.395, 1.395)
+
+[node name="Asteroid29" parent="." instance=ExtResource("14_22mqa")]
+position = Vector2(5486, -5056.0005)
+rotation = -3.0508356
+scale = Vector2(0.785, 0.785)
+
+[node name="Asteroid30" parent="." instance=ExtResource("13_o5em7")]
+position = Vector2(9170.001, -8362)
+scale = Vector2(10.33, 10.33)
+
+[node name="ExitZone" parent="." instance=ExtResource("17_6c6bd")]
+position = Vector2(8540, -6738.9995)
+rotation = 0.4886922
 
 [node name="HealthBar" parent="." instance=ExtResource("9_n6eey")]
+
+[node name="Wallet" parent="." instance=ExtResource("8_2bnyt")]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(5370, -3644)
+script = ExtResource("11_n6eey")
+target = NodePath("../Player")
+
+[node name="BossUi" parent="." instance=ExtResource("20_kdsi4")]
+
+[node name="TargetFinder" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_5f5xw")]
+target = NodePath("../ExitZone")
+
+[node name="BossArea" type="Area2D" parent="."]
+position = Vector2(8523, -6691)
+script = ExtResource("22_kva3v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossArea"]
+position = Vector2(-259, -40)
+polygon = PackedVector2Array(-436, -1651, 405, -1382, 1389, -1033, 1944, -129, 1055, 1442, -610, 1918, -2038, -462, -1507, -1740)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_lgrx1")]
 visible = false
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("11_n6eey")
-target = NodePath("../Player")
+[connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
+[connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]
+[connection signal="body_entered" from="BossArea" to="BossArea" method="_on_body_entered"]
+[connection signal="body_exited" from="BossArea" to="BossArea" method="_on_body_exited"]
