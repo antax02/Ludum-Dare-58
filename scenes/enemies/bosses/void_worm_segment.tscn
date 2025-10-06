@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://8rcosa3x6lx3"]
+[gd_scene load_steps=4 format=3 uid="uid://8rcosa3x6lx3"]
+
+[ext_resource type="Script" uid="uid://dpbr3sqvv6dm1" path="res://scenes/enemies/bosses/void_worm_segment.gd" id="1_p5f12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qk3um"]
 radius = 54.00926
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f4hqn"]
+radius = 82.607506
+
 [node name="VoidWormSegment" type="PathFollow2D"]
+script = ExtResource("1_p5f12")
 
 [node name="Body" type="Node2D" parent="."]
 
@@ -23,7 +29,15 @@ polygon = PackedVector2Array(-39, -13, -27, -30, -6, -41, 16, -41, 35, -19, 39, 
 color = Color(0.20730856, 0.17040336, 0.2876026, 1)
 polygon = PackedVector2Array(-23, -11, -12, -29, 11, -29, 22, -15, 19, 9, -2, 14, -21, 8)
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="VoidWormSegment" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidWormSegment"]
 shape = SubResource("CircleShape2D_qk3um")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_f4hqn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
