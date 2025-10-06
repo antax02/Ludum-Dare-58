@@ -4,6 +4,7 @@ extends PanelContainer
 @onready var credits_button = $marign/layout/buttons/credits
 @onready var quit_button = $marign/layout/buttons/quit
 @onready var title_label = $marign/layout/buttons/Game_Name
+@onready var click_audio: AudioStreamPlayer = $"../ClickAudio"
 
 var button_original_positions = {}
 
@@ -48,6 +49,9 @@ func _on_button_unhover(button: Button):
 			ButtonStyler.HOVER_DURATION)
 
 func _on_start_pressed() -> void:
+	click_audio.play()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_packed(WORLD)
 	# Ensure we go to the latest level
 	var latest_level_number = int(Global.current_level)
 	var next_scene_path = "res://scenes/levels/level_" + str(latest_level_number) + ".tscn"
@@ -59,11 +63,12 @@ func _on_start_pressed() -> void:
 func _change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
 
-
 func _on_credits_pressed() -> void:
+	click_audio.play()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/ui/credits.tscn")
 
-
-
 func _on_quit_pressed() -> void:
+	click_audio.play()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()

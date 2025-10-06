@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://hdrxntv4m2bt"]
+[gd_scene load_steps=4 format=3 uid="uid://hdrxntv4m2bt"]
 
 [ext_resource type="Script" uid="uid://u87e1cc2j0uf" path="res://scripts/ui/credits.gd" id="1_jkvjv"]
 [ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_pqmjv"]
+[ext_resource type="AudioStream" uid="uid://dedh5rv24tjk8" path="res://assets/audio/click.wav" id="3_pqmjv"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -86,5 +87,9 @@ self_modulate = Color(0.96585315, 0.6163717, 0.4722609, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
 text = "Back"
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pqmjv")
+volume_db = -10.0
 
 [connection signal="pressed" from="credits/margin/container/MarginContainer/back" to="credits" method="_on_back_pressed"]

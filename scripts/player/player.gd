@@ -8,12 +8,17 @@ var dash_target_entities: int = 0
 var dash_cooldown: float = 2
 var dead = false
 var rotation_freeze_time: float = 10.0
+var death_sound_played = false
+@onready var dash_sfx: AudioStreamPlayer2D = $DashAudio
+@onready var shoot_audio: AudioStreamPlayer2D = $ShootAudio
+@onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 
 func _ready():
 	pass
 
 func shoot():
 	var b = bullet.instantiate()
+	shoot_audio.play()
 	if b:
 		b.global_position = $ShootLeft.global_position
 		b.global_rotation = $ShootLeft.global_rotation
@@ -36,6 +41,9 @@ func take_damage(damage):
 		# money += 10
 		get_tree().get_first_node_in_group("death").visible = true
 		dead = true
+		if !death_sound_played:
+			death_audio.play()
+			death_sound_played = true
 
 func _physics_process(delta):
 
@@ -56,6 +64,8 @@ func _physics_process(delta):
 		if Input.is_action_pressed("dash") and dash_target_entities == 0 and dash_cooldown >= 1.5:
 			$DashEffect.visible = true
 			$DashEffectAnimation.play("hide")
+
+			dash_sfx.play()
 
 			global_rotation = (get_global_mouse_position() - global_position).normalized().angle()
 			
