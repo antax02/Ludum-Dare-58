@@ -13,6 +13,7 @@ var bullet_cooldown: float = 0.5
 var bullet_timer: float = 0
 var destruction_value: int = 10
 @export var bullet: PackedScene
+@onready var die_audio: AudioStreamPlayer2D = $DieAudio
 
 
 func setup():
@@ -48,6 +49,8 @@ func take_damage(damage):
 		print(MoneyManager.money)
 		#emit_signal("counter_update")
 		SignalBus.counter_update.emit()
+		die_audio.play()
+		await get_tree().create_timer(0.1).timeout
 		queue_free()
 
 func _physics_process(delta):

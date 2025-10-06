@@ -33,7 +33,11 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 theme_override_constants/separation = 84
 
-[node name="Credits" type="Label" parent="credits/margin/container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="credits/margin/container"]
+layout_mode = 2
+theme_override_constants/separation = 149
+
+[node name="Credits" type="Label" parent="credits/margin/container/VBoxContainer"]
 modulate = Color(0.86808217, 0.5562146, 0.36622795, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_pqmjv")
@@ -41,7 +45,12 @@ theme_override_font_sizes/font_size = 181
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="credits/margin/container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="credits/margin/container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 350
+alignment = 1
+
+[node name="Label2" type="Label" parent="credits/margin/container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 0
@@ -49,11 +58,11 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_pqmjv")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 75
 text = "Anton"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="credits/margin/container"]
+[node name="Label3" type="Label" parent="credits/margin/container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 0
@@ -61,11 +70,11 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_pqmjv")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 75
 text = "Alvar"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="credits/margin/container"]
+[node name="Label4" type="Label" parent="credits/margin/container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 0
@@ -73,18 +82,31 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_pqmjv")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 75
 text = "Julia"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="credits/margin/container"]
+[node name="MarginContainer2" type="MarginContainer" parent="credits/margin/container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = -50
+
+[node name="Label" type="Label" parent="credits/margin/container/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pqmjv")
+theme_override_font_sizes/font_size = 41
+text = "Music by Steven"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="credits/margin/container/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 600
 theme_override_constants/margin_right = 600
 
-[node name="back" type="Button" parent="credits/margin/container/MarginContainer"]
+[node name="back" type="Button" parent="credits/margin/container/VBoxContainer/MarginContainer"]
 self_modulate = Color(0.96585315, 0.6163717, 0.4722609, 1)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pqmjv")
 theme_override_font_sizes/font_size = 56
 text = "Back"
 
@@ -92,4 +114,4 @@ text = "Back"
 stream = ExtResource("3_pqmjv")
 volume_db = -10.0
 
-[connection signal="pressed" from="credits/margin/container/MarginContainer/back" to="credits" method="_on_back_pressed"]
+[connection signal="pressed" from="credits/margin/container/VBoxContainer/MarginContainer/back" to="credits" method="_on_back_pressed"]

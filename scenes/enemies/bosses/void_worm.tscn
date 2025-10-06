@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxhsht6ng72y8"]
+[gd_scene load_steps=7 format=3 uid="uid://rbevsx7okhnh"]
 
-[ext_resource type="Script" path="res://scripts/enemies/bosses/void_worm.gd" id="1_d3qpr"]
+[ext_resource type="Script" uid="uid://b5yjwkxub3dtd" path="res://scripts/enemies/bosses/void_worm.gd" id="1_d3qpr"]
 [ext_resource type="Script" path="res://scripts/enemies/bosses/head.gd" id="1_s2tuf"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/bosses/void_worm_segment.tscn" id="2_7xd2p"]
-[ext_resource type="PackedScene" uid="uid://c3jmflt0fijor" path="res://scenes/projectiles/worm_ball.tscn" id="2_a3cus"]
+[ext_resource type="PackedScene" path="res://scenes/projectiles/worm_ball.tscn" id="2_a3cus"]
+[ext_resource type="AudioStream" uid="uid://h22o1ygry41p" path="res://assets/audio/worm_attack.wav" id="5_en7q5"]
 
 [sub_resource type="Curve2D" id="Curve2D_7xd2p"]
 _data = {
@@ -47,3 +48,7 @@ polygon = PackedVector2Array(-12.373459, -32.724564, -5.148407, -25.738968, -5.3
 [node name="Polygon2D5" type="Polygon2D" parent="Head"]
 color = Color(0.43573096, 0.19467282, 0.21900728, 1)
 polygon = PackedVector2Array(-23.789215, -8.606552, -19.321548, -19.096527, -6.881836, -28.383804, 2.0016174, -31.559387, 12.200302, -23.497955, 20.665573, -18.08136, 24.461258, -9.982422, 24.244965, 6.4173737, 20.688705, 12.529083, 9.160416, 17.43808, 1.2258759, 22.638382, -11.453262, 17.715012, -22.30957, 4.03508, -23.789215, -8.606552, -35.646317, -6.50679, -34.951202, 5.5147247, -22.525864, 20.434875, -12.947266, 29.280807, 5.1859436, 32.141953, 18.28328, 28.47316, 29.153961, 17.945663, 31.596893, 8.404587, 36.520264, -4.274536, 31.611267, -15.802841, 28.271301, -26.090927, 15.71907, -36.01268, -1.009552, -39.038208, -6.7924347, -39.785217, -24.686249, -28.4357, -34.31671, -19.477219, -35.646317, -6.50679)
+
+[node name="AttackAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_en7q5")
+volume_db = -15.0

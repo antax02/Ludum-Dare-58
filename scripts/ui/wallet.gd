@@ -11,4 +11,4 @@ func _on_counter_update() -> void:
 	money_count()
 
 func money_count():
-	label.text = "Money: " + str(MoneyManager.money)
+	label.text = "Score: " + str(MoneyManager.money)

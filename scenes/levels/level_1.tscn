@@ -19,7 +19,7 @@
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="12_7o3do"]
 [ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="14_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="15_wtwp4"]
-[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="16_bahl2"]
+[ext_resource type="PackedScene" uid="uid://ch05qjo5kpxj0" path="res://scenes/ui/target_finder.tscn" id="16_bahl2"]
 [ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="16_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="19_v6ha0"]
 

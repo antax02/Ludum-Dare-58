@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var enabled = false
+@onready var next_level: AudioStreamPlayer2D = $NextLevel
 
 func _ready() -> void:
 	SignalBus.spawn_boss_drop.connect(_spawn_boss_drop)
@@ -27,6 +28,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _change_scene(path: String) -> void:
+	next_level.play()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file(path)
 
 func _spawn_boss_drop():

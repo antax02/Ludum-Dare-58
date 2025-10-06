@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlukhtdc5xlsr"]
+[gd_scene load_steps=10 format=3 uid="uid://dlukhtdc5xlsr"]
 
 [ext_resource type="Script" uid="uid://xgly6ivcsmm1" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://pug080u7rka1" path="res://scenes/projectiles/bullet.tscn" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://d27qxsjf82age" path="res://assets/audio/dash.wav" id="3_gmlin"]
 [ext_resource type="AudioStream" uid="uid://cjdavfp461rm6" path="res://assets/audio/laserShoot.wav" id="4_lvxji"]
 [ext_resource type="AudioStream" uid="uid://yvakhu58vvok" path="res://assets/audio/death.mp3" id="5_p47bc"]
+[ext_resource type="AudioStream" uid="uid://b4w2gaym87axs" path="res://assets/audio/thunder.mp3" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(152, 104)
@@ -193,6 +194,7 @@ libraries = {
 
 [node name="DashAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gmlin")
+volume_db = -15.0
 
 [node name="ShootAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_lvxji")
@@ -201,6 +203,12 @@ volume_db = -20.0
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_p47bc")
 volume_db = -10.097
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_75vfm")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

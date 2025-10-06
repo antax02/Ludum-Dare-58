@@ -2,6 +2,7 @@ extends Path2D
 
 @onready var head: PathFollow2D = $Head
 @export var projectile: PackedScene
+@onready var attack_audio: AudioStreamPlayer2D = $AttackAudio
 
 var phase: int = 1
 var health: int = 6000
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 		dash_cooldown = 2.0
 		await get_tree().create_timer(1.0).timeout
 		while phase == 2:
-			
+			attack_audio.play()
 			for i in range(36):
 				var angle := deg_to_rad(i * 10)
 				spit(angle, 8.0, 300.0)
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 		shoot_timer = 0.0
 		if phase == 1:
 			spit_at_player()
+			attack_audio.play()
 
 
 func dash() -> void:

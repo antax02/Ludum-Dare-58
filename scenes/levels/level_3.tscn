@@ -19,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://cord2n1qox8nr" path="res://scenes/environment/asteroid_01.tscn" id="13_o5em7"]
 [ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="14_22mqa"]
 [ext_resource type="PackedScene" uid="uid://bu470xwrb73hy" path="res://scenes/levels/next_level/exit_zone.tscn" id="17_6c6bd"]
-[ext_resource type="PackedScene" uid="uid://cxhsht6ng72y8" path="res://scenes/enemies/bosses/void_worm.tscn" id="20_1nwmf"]
+[ext_resource type="PackedScene" uid="uid://rbevsx7okhnh" path="res://scenes/enemies/bosses/void_worm.tscn" id="20_1nwmf"]
 [ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="20_kdsi4"]
-[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="21_5f5xw"]
+[ext_resource type="PackedScene" uid="uid://ch05qjo5kpxj0" path="res://scenes/ui/target_finder.tscn" id="21_5f5xw"]
 [ext_resource type="Script" uid="uid://coh1aljif6nol" path="res://scripts/enemies/bosses/boss_area.gd" id="22_kva3v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]

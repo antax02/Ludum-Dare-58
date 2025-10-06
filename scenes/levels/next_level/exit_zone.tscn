@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu470xwrb73hy"]
+[gd_scene load_steps=4 format=3 uid="uid://bu470xwrb73hy"]
 
 [ext_resource type="Script" uid="uid://71di2rojldlm" path="res://scripts/environment/exits/exit_zone.gd" id="1_0nj3s"]
+[ext_resource type="AudioStream" uid="uid://dlxlf6frj6jpn" path="res://assets/audio/levelup.mp3" id="2_vkkr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38eme"]
 size = Vector2(300, 78)
@@ -15,5 +16,9 @@ debug_color = Color(0.9691512, 0, 0.46634603, 0.41960785)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-58, -100, 1, -41, 68, -98, 167, 1, 87, 85, -90, 82, -172, -2)
+
+[node name="NextLevel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vkkr3")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

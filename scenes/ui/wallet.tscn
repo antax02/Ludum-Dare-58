@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bji4jx6ej8fyj"]
+[gd_scene load_steps=3 format=3 uid="uid://bji4jx6ej8fyj"]
 
 [ext_resource type="Script" uid="uid://d1hkq74pu4hmx" path="res://scripts/ui/wallet.gd" id="1_51v4g"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_jx0t0"]
 
 [node name="Wallet" type="CanvasLayer"]
 script = ExtResource("1_51v4g")
@@ -36,6 +37,7 @@ theme_override_constants/margin_bottom = 10
 [node name="coin_count" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_jx0t0")
 theme_override_font_sizes/font_size = 25
 text = "coin count"
 horizontal_alignment = 1
