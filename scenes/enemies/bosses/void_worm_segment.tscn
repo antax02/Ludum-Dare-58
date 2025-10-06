@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8rcosa3x6lx3"]
 
-[ext_resource type="Script" uid="uid://dpbr3sqvv6dm1" path="res://scenes/enemies/bosses/void_worm_segment.gd" id="1_p5f12"]
+[ext_resource type="Script" uid="uid://dpbr3sqvv6dm1" path="res://scripts/enemies/bosses/void_worm_segment.gd" id="1_p5f12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qk3um"]
 radius = 54.00926
