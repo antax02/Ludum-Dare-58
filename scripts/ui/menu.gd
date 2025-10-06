@@ -51,7 +51,6 @@ func _on_button_unhover(button: Button):
 func _on_start_pressed() -> void:
 	click_audio.play()
 	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_packed(WORLD)
 	# Ensure we go to the latest level
 	var latest_level_number = int(Global.current_level)
 	var next_scene_path = "res://scenes/levels/level_" + str(latest_level_number) + ".tscn"

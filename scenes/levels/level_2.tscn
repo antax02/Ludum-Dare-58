@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://8h6uov5sm2t0"]
+[gd_scene load_steps=25 format=3 uid="uid://85vgcgrse4mm"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_qsp8v"]
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_lkn2k"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="12_brxtv"]
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="12_r6ket"]
 [ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="19_xworo"]
-[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="22_sbygb"]
+[ext_resource type="PackedScene" uid="uid://ch05qjo5kpxj0" path="res://scenes/ui/target_finder.tscn" id="22_sbygb"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="23_5niy6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("12_r6ket")
@@ -390,6 +391,23 @@ scale = Vector2(1.055, 1.055)
 position = Vector2(-7950, -10906)
 rotation = -3.4156094
 scale = Vector2(0.325, 0.325)
+
+[node name="LevelTransition" type="CanvasLayer" parent="." groups=["level_transition"]]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelTransition/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_5niy6")
+theme_override_font_sizes/font_size = 24
+text = "Another body part acquired! The prophecy of Göran’s reassembly is nigh! Soon he shall rise... to mildly inconvenience everyone!"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]
