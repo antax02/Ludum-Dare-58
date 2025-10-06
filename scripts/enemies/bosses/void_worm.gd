@@ -4,8 +4,8 @@ extends Path2D
 @export var projectile: PackedScene
 
 var phase: int = 1
-var health: int = 6000
-var max_health: int = 6000
+var health: int = 5000
+var max_health: int = 5000
 
 var dash_timer: float = 0.0
 var dash_cooldown: float = 4.0

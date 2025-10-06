@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dtmq1kbcfmtda" path="res://scenes/enemies/bosses/gunship.tscn" id="22_wikm6"]
 [ext_resource type="PackedScene" uid="uid://hr1d8w7fnfbl" path="res://scenes/ui/boss_ui.tscn" id="23_1c1qw"]
 [ext_resource type="Script" uid="uid://coh1aljif6nol" path="res://scripts/enemies/bosses/boss_area.gd" id="23_5niy6"]
+[ext_resource type="FontFile" uid="uid://ciwv1nxsex0wx" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="23_5niy6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("12_r6ket")
@@ -299,6 +300,23 @@ position = Vector2(7249, -1592)
 
 [node name="Enemy20" parent="." instance=ExtResource("3_brxtv")]
 position = Vector2(5103, -66)
+
+[node name="LevelTransition" type="CanvasLayer" parent="." groups=["level_transition"]]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelTransition/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_5niy6")
+theme_override_font_sizes/font_size = 24
+text = "Another body part acquired! The prophecy of Göran’s reassembly is nigh! Soon he shall rise... to mildly inconvenience everyone!"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]
