@@ -203,7 +203,6 @@ scale = Vector2(10.33, 10.33)
 [node name="ExitZone" parent="." instance=ExtResource("10_p4se4")]
 position = Vector2(6151, -1508)
 rotation = 0.73129296
-enabled = true
 
 [node name="Wallet" parent="." instance=ExtResource("9_nt80m")]
 
