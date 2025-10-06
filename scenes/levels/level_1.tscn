@@ -39,8 +39,6 @@ position = Vector2(-495, -164)
 [node name="ExitZone" parent="." instance=ExtResource("10_2cbcq")]
 position = Vector2(-35, 251)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
 [node name="BossArea" parent="." instance=ExtResource("12_iav0o")]
 position = Vector2(676, -198)
 
@@ -49,20 +47,13 @@ boss_name = "Gunship"
 
 [node name="HealthBar" parent="." instance=ExtResource("14_mm8aj")]
 
-[node name="VoidWorm" parent="." instance=ExtResource("13_mm8aj")]
-position = Vector2(-753, 407)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
-visible = false
-
 [node name="Wallet" parent="." instance=ExtResource("15_wtwp4")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_x2xxo")]
 visible = false
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("16_iwr0g")
 target = NodePath("../Player")
