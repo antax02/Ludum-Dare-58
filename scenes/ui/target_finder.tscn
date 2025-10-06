@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch05qjo5kpxj0"]
+
+[ext_resource type="Script" uid="uid://cgt0yet0ukjsi" path="res://scripts/ui/target_finder.gd" id="1_dx6p4"]
+[ext_resource type="Texture2D" uid="uid://bj1lxgy5488f1" path="res://assets/ui/arrow.png" id="1_o7p7o"]
+
+[node name="TargetFinder" type="CanvasLayer"]
+script = ExtResource("1_dx6p4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(960, 1000)
+texture = ExtResource("1_o7p7o")

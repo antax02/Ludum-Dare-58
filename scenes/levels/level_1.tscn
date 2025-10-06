@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bs4u3p8mk0b4h"]
+[gd_scene load_steps=24 format=3 uid="uid://bs4u3p8mk0b4h"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://bsttj07uh4amy" path="res://scenes/enemies/enemy.tscn" id="2_2os1m"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="12_7o3do"]
 [ext_resource type="PackedScene" uid="uid://7c5qgpswgyxg" path="res://scenes/ui/health_bar.tscn" id="14_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bji4jx6ej8fyj" path="res://scenes/ui/wallet.tscn" id="15_wtwp4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="16_bahl2"]
 [ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="16_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="19_v6ha0"]
 
@@ -33,7 +34,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2y5yt")]
 position = Vector2(3, 18)
@@ -326,8 +327,10 @@ position = Vector2(8178, -9867)
 position = Vector2(9954, -8771)
 
 [node name="ExitZone" parent="." instance=ExtResource("10_2cbcq")]
-position = Vector2(10731, -10895)
-rotation = 0.4886922
+visible = true
+position = Vector2(10900, -9981)
+rotation = 0.73129296
+enabled = true
 
 [node name="HealthBar" parent="." instance=ExtResource("14_mm8aj")]
 
@@ -341,6 +344,14 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("16_iwr0g")
 target = NodePath("../Player")
+
+[node name="TargetFinder" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_bahl2")]
+target = NodePath("../ExitZone")
+
+[node name="Asteroid31" parent="." instance=ExtResource("7_7nomh")]
+position = Vector2(10602.001, -9800)
+rotation = -1.8308504
+scale = Vector2(2.24, 2.24)
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]

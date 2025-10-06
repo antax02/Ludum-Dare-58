@@ -1,7 +1,12 @@
 extends Area2D
 
+var enabled = false
+
+func _ready() -> void:
+	SignalBus.spawn_boss_drop.connect(_spawn_boss_drop)
+
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") && enabled:
 		MoneyManager.level_load_money = MoneyManager.money
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		var file_name = current_scene_file.get_file().get_basename()  # e.g. "level_1"
@@ -23,3 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
+
+func _spawn_boss_drop():
+	visible = true
+	enabled = true

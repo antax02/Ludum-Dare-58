@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://8h6uov5sm2t0"]
+[gd_scene load_steps=24 format=3 uid="uid://8h6uov5sm2t0"]
 
 [ext_resource type="PackedScene" uid="uid://dlukhtdc5xlsr" path="res://scenes/player/player.tscn" id="1_qsp8v"]
 [ext_resource type="Script" uid="uid://cwed5fxph00mp" path="res://scripts/environment/environment.gd" id="2_lkn2k"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://pcf13s5jd63y" path="res://scripts/player/camera_2d.gd" id="12_brxtv"]
 [ext_resource type="Shader" uid="uid://du8bc8n2isnsd" path="res://resources/glitch_crt.gdshader" id="12_r6ket"]
 [ext_resource type="PackedScene" uid="uid://bg16v6gptj88h" path="res://scenes/environment/asteroid_02.tscn" id="19_xworo"]
+[ext_resource type="PackedScene" path="res://scenes/ui/target_finder.tscn" id="22_sbygb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0juu"]
 shader = ExtResource("12_r6ket")
@@ -325,24 +326,6 @@ position = Vector2(-5293, -9565)
 [node name="Enemy27" parent="." instance=ExtResource("3_brxtv")]
 position = Vector2(-3517, -8469)
 
-[node name="ExitZone" parent="." instance=ExtResource("10_p4se4")]
-position = Vector2(-8245.001, -10941)
-rotation = -0.3647738
-
-[node name="HealthBar" parent="." instance=ExtResource("10_brxtv")]
-
-[node name="Wallet" parent="." instance=ExtResource("9_nt80m")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_gw1l3")]
-visible = false
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(6047, 1791)
-script = ExtResource("12_brxtv")
-target = NodePath("../Player")
-
 [node name="Enemy28" parent="." instance=ExtResource("3_brxtv")]
 position = Vector2(-3007, -6278)
 
@@ -369,6 +352,44 @@ position = Vector2(-6035, -7100)
 
 [node name="Enemy36" parent="." instance=ExtResource("2_nt80m")]
 position = Vector2(-4276, -6004)
+
+[node name="ExitZone" parent="." instance=ExtResource("10_p4se4")]
+visible = true
+position = Vector2(-8245.001, -10941)
+rotation = -0.3647738
+enabled = true
+
+[node name="HealthBar" parent="." instance=ExtResource("10_brxtv")]
+
+[node name="Wallet" parent="." instance=ExtResource("9_nt80m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death" parent="CanvasLayer" groups=["death"] instance=ExtResource("9_gw1l3")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(6047, 1791)
+script = ExtResource("12_brxtv")
+target = NodePath("../Player")
+
+[node name="TargetFinder" parent="." node_paths=PackedStringArray("target") instance=ExtResource("22_sbygb")]
+target = NodePath("../ExitZone")
+
+[node name="Asteroid31" parent="." instance=ExtResource("7_ndlae")]
+position = Vector2(-8472, -10605.001)
+rotation = 0.85346603
+scale = Vector2(1.46, 1.46)
+
+[node name="Asteroid32" parent="." instance=ExtResource("19_xworo")]
+position = Vector2(-7937, -10597)
+rotation = -0.97563905
+scale = Vector2(1.055, 1.055)
+
+[node name="Asteroid33" parent="." instance=ExtResource("19_xworo")]
+position = Vector2(-7950, -10906)
+rotation = -3.4156094
+scale = Vector2(0.325, 0.325)
 
 [connection signal="body_entered" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_entered"]
 [connection signal="body_exited" from="Enviorment/PlayableArea" to="Enviorment" method="_on_playable_area_body_exited"]
